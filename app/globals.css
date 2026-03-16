@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@source "../app/**/*.{ts,tsx}";
+@source "../components/**/*.{ts,tsx}";
+
+@theme {
+  /* ── Colors ───────────────────────────────────────────────── */
+  --color-bg: #FAF8F4;
+  --color-card: #FFFFFF;
+  --color-text-primary: #1C1917;
+  --color-text-secondary: #78716C;
+  --color-accent: #C07A56;
+  --color-border: #E8E0D5;
+
+  /* ── Fonts ────────────────────────────────────────────────── */
+  --font-serif: var(--font-dm-serif), "DM Serif Display", serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", monospace;
+
+  /* ── Shadows ──────────────────────────────────────────────── */
+  --shadow-card: 0 2px 8px rgba(28, 25, 23, 0.08), 0 0 1px #E8E0D5;
+  --shadow-card-hover: 0 8px 24px rgba(28, 25, 23, 0.16), 0 0 1px #E8E0D5;
+
+  /* ── Z-index ──────────────────────────────────────────────── */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-nav: 40;
+  --z-grain: 50;
+  --z-modal: 60;
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+html {
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── MeshGradient keyframes ───────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes mesh-blob-1 {
+    0%, 100% { transform: translate(0%, 0%); }
+    50%       { transform: translate(4%, -3%); }
+  }
+
+  @keyframes mesh-blob-2 {
+    0%, 100% { transform: translate(0%, 0%); }
+    50%       { transform: translate(-3%, 4%); }
+  }
+
+  @keyframes mesh-blob-3 {
+    0%, 100% { transform: translate(0%, 0%); }
+    50%       { transform: translate(3%, 2%); }
+  }
+}

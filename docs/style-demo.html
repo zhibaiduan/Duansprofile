@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Style Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ─────────────────────────────────────── */
+    :root {
+      --bg:             #FAF8F4;
+      --card:           #FFFFFF;
+      --text-primary:   #1C1917;
+      --text-secondary: #78716C;
+      --accent:         #C07A56;
+      --border:         #E8E0D5;
+      --shadow:         rgba(28,25,23,0.08);
+      --shadow-hover:   rgba(28,25,23,0.16);
+
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-sans:  'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono:  'Geist Mono', 'Courier New', monospace;
+    }
+
+    /* ── Reset ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Mesh gradient background ───────────────────── */
+    .mesh-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%,  rgba(212,180,150,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%,  rgba(192,122,86,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 40% at 60% 30%,  rgba(240,220,195,0.18) 0%, transparent 50%),
+        var(--bg);
+      animation: meshShift 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshShift {
+      0%   { background-position: 0% 0%, 100% 100%, 60% 30%; }
+      50%  { background-position: 5% 8%, 92% 88%, 55% 38%; }
+      100% { background-position: 2% 4%, 97% 95%, 63% 25%; }
+    }
+
+    /* ── Grain overlay ──────────────────────────────── */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      opacity: 0.045;
+      mix-blend-mode: multiply;
+    }
+
+    /* ── Layout ─────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 10;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── Nav ────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ───────────────────────────────────────── */
+    .hero {
+      padding: 96px 0 80px;
+      position: relative;
+    }
+
+    .hero-bg-shape {
+      position: absolute;
+      top: 40px;
+      left: -80px;
+      width: 420px;
+      height: 320px;
+      background: radial-gradient(ellipse, rgba(192,122,86,0.18) 0%, transparent 70%);
+      filter: blur(60px);
+      border-radius: 50%;
+      animation: breathe 9s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1);    opacity: 0.7; }
+      50%       { transform: scale(1.08); opacity: 1;   }
+    }
+
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 520px;
+    }
+
+    .hero-scroll-cue {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .hero-scroll-cue::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Section label ──────────────────────────────── */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '—';
+      color: var(--accent);
+    }
+
+    /* ── Story section ──────────────────────────────── */
+    .story {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .story-beat {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0 48px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .story-beat.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .beat-year {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      padding-top: 6px;
+    }
+
+    .beat-content {}
+
+    .beat-headline {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .beat-body {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    /* ── Work projects ──────────────────────────────── */
+    .projects {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px var(--shadow), 0 0 1px var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .card:nth-child(1) { transform: rotate(-1.4deg); animation-delay: 0.1s; }
+    .card:nth-child(2) { transform: rotate(0.8deg);  animation-delay: 0.2s; }
+    .card:nth-child(3) { transform: rotate(-0.6deg); animation-delay: 0.3s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px) rotate(var(--r, 0deg)); }
+      to   { opacity: 1; }
+    }
+
+    .card:nth-child(1) { --r: -1.4deg; }
+    .card:nth-child(2) { --r:  0.8deg; }
+    .card:nth-child(3) { --r: -0.6deg; }
+
+    .card:hover {
+      transform: rotate(0deg) translateY(-5px) !important;
+      box-shadow: 0 12px 32px var(--shadow-hover), 0 0 1px var(--border);
+    }
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #EDE5DC 0%, #D4C5B0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-image-label {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    /* unique tones per card */
+    .card:nth-child(2) .card-image {
+      background: linear-gradient(135deg, #DFE3E8 0%, #C8CDD4 100%);
+    }
+    .card:nth-child(3) .card-image {
+      background: linear-gradient(135deg, #E8E0D8 0%, #CFC3B2 100%);
+    }
+
+    .card-body {
+      padding: 18px 20px 20px;
+    }
+
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .card-summary {
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(192,122,86,0.1);
+      color: var(--accent);
+    }
+
+    .tag.muted {
+      background: var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* ── Writing section (small preview) ───────────── */
+    .writing {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .writing-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .writing-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: baseline;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+      margin: 0 -16px;
+      padding-left: 16px;
+      padding-right: 16px;
+      border-radius: 6px;
+    }
+
+    .writing-item:hover {
+      background: rgba(192,122,86,0.04);
+    }
+
+    .writing-item:hover .writing-title {
+      color: var(--accent);
+    }
+
+    .writing-date {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+    }
+
+    .writing-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+
+    .writing-time {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    /* ── Footer ─────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-name {
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── Divider ────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 8px 0;
+    }
+
+    /* ── Stickers ───────────────────────────────────── */
+
+    /* Sticky note */
+    .sticker-note {
+      position: absolute;
+      background: #FDF3DC;
+      border: 1px solid rgba(210,170,100,0.35);
+      border-radius: 3px;
+      padding: 10px 13px 12px;
+      box-shadow: 2px 3px 12px rgba(28,25,23,0.10), 0 0 0 1px rgba(210,170,100,0.12);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #5C4A28;
+      max-width: 148px;
+      pointer-events: none;
+      user-select: none;
+      /* top fold */
+    }
+    .sticker-note::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 0; height: 0;
+      border-style: solid;
+      border-width: 0 10px 10px 0;
+      border-color: transparent rgba(210,170,100,0.35) transparent transparent;
+    }
+    .sticker-note::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 10px; height: 10px;
+      background: linear-gradient(225deg, #F0DFB0 50%, #FDF3DC 50%);
+      border-bottom-left-radius: 2px;
+    }
+
+    /* Dashed annotation frame */
+    .sticker-frame {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1.5px dashed var(--accent);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Status badge on card image */
+    .sticker-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.60rem;
+      letter-spacing: 0.05em;
+      font-weight: 400;
+      box-shadow: 0 1px 6px rgba(28,25,23,0.12);
+      pointer-events: none;
+    }
+    .sticker-badge.shipped {
+      background: #EAF5EE;
+      color: #2E7D4F;
+      border: 1px solid rgba(46,125,79,0.2);
+    }
+    .sticker-badge.ongoing {
+      background: #FEF3E8;
+      color: #C07A56;
+      border: 1px solid rgba(192,122,86,0.25);
+    }
+    .sticker-badge.dot::before {
+      content: '';
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* Highlight underline sticker */
+    .sticker-highlight {
+      position: relative;
+      display: inline;
+    }
+    .sticker-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: -2px; right: -2px;
+      height: 7px;
+      background: rgba(255, 210, 120, 0.45);
+      border-radius: 2px;
+      z-index: -1;
+      transform: rotate(-0.4deg);
+    }
+
+    /* Arrow SVG annotation */
+    .sticker-arrow {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Annotation label (small floating tag) */
+    .sticker-label {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--text-primary);
+      color: #FAF8F4;
+      font-family: var(--font-mono);
+      font-size: 0.60rem;
+      letter-spacing: 0.06em;
+      padding: 4px 9px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(28,25,23,0.18);
+      pointer-events: none;
+      user-select: none;
+    }
+    .sticker-label::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 12px;
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid var(--text-primary);
+    }
+
+    /* Comment pin (Figma style) */
+    .sticker-pin {
+      position: absolute;
+      width: 24px; height: 24px;
+      background: var(--accent);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      box-shadow: 0 2px 8px rgba(192,122,86,0.35);
+      pointer-events: none;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sticker-pin span {
+      transform: rotate(45deg);
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: white;
+      font-weight: 500;
+    }
+
+    @keyframes sticker-float {
+      0%, 100% { transform: rotate(2.5deg) translateY(0px); }
+      50%       { transform: rotate(2.5deg) translateY(-4px); }
+    }
+
+    /* ── Utility ────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .writing-item { grid-template-columns: 1fr; gap: 4px; }
+      .writing-time { display: none; }
+      .story-beat { grid-template-columns: 1fr; gap: 8px; }
+      .sticker-note, .sticker-arrow, .sticker-label, .sticker-pin { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mesh gradient -->
+  <div class="mesh-bg" aria-hidden="true"></div>
+
+  <!-- Grain overlay -->
+  <svg class="grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+  </svg>
+
+  <!-- Page content -->
+  <div class="page">
+
+    <!-- Nav -->
+    <nav>
+      <span class="nav-name">Your Name</span>
+      <ul class="nav-links">
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Written</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg-shape" aria-hidden="true"></div>
+
+      <!-- Sticky note: top-right of hero -->
+      <div class="sticker-note" style="
+        top: 12px; right: 0;
+        transform: rotate(2.5deg);
+        animation: sticker-float 6s ease-in-out infinite;
+      ">
+        ✦ Open to the<br/>right opportunity
+      </div>
+
+      <p class="hero-label">Product Manager</p>
+      <h1 class="hero-name">
+        Building things<br/>at the edge of<br/><em>design & systems.</em>
+      </h1>
+      <p class="hero-tagline">
+        I make products that feel considered — from the first interaction
+        to the last edge case. Based in somewhere warm.
+      </p>
+
+      <!-- Annotation label floating near tagline -->
+      <div class="sticker-label" style="
+        bottom: 80px; right: 60px;
+        transform: rotate(-1.5deg);
+      ">
+        5 yrs in product
+      </div>
+
+      <!-- Hand-drawn arrow pointing to label -->
+      <svg class="sticker-arrow" style="bottom: 68px; right: 158px; width:52px; height:40px;" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 36 C10 20, 30 8, 46 6" stroke="#C07A56" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="0"/>
+        <path d="M44 2 L48 8 L40 8" stroke="#C07A56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+
+      <div class="hero-scroll-cue">Scroll to explore</div>
+    </section>
+
+    <!-- Story -->
+    <section class="story">
+      <p class="section-label">Story</p>
+
+      <div class="story-beat">
+        <span class="beat-year">2018</span>
+        <div class="beat-content">
+          <h2 class="beat-headline">Started asking why, not how.</h2>
+          <p class="beat-body">Studied interaction design, spent more time in user interviews than in Figma. Learned that the real work starts before any screen exists.</p>
+        </div>
+      </div>
+
+      <div class="story-beat">
+        <span class="beat-year">2020</span>
+        <div class="beat-content">
+          <h2 class="beat-headline">Shipped a 0→1 product. Twice.</h2>
+          <p class="beat-body">Joined an early-stage team and built from nothing — roadmap, research, stakeholder alignment, and the inevitable pivots. Became comfortable with ambiguity.</p>
+        </div>
+      </div>
+
+      <div class="story-beat" style="position:relative;">
+        <span class="beat-year">Now</span>
+        <div class="beat-content">
+          <h2 class="beat-headline">Looking for the next hard problem.</h2>
+          <p class="beat-body">Interested in teams that care about craft, products used daily by real people, and the space where complexity becomes clarity.</p>
+        </div>
+        <!-- Comment pin -->
+        <div class="sticker-pin" style="top: 12px; right: -14px;">
+          <span>1</span>
+        </div>
+        <!-- Sticky note responding to pin -->
+        <div class="sticker-note" style="
+          top: -10px; right: -172px;
+          transform: rotate(1.8deg);
+          animation: sticker-float 7s ease-in-out infinite 1s;
+        ">
+          That's you.<br/>Let's talk ↗
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Projects -->
+    <section class="projects">
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px;">
+        <p class="section-label" style="margin-bottom:0;">Work</p>
+        <!-- Dashed annotation frame next to section label -->
+        <span class="sticker-frame" style="transform: rotate(-0.8deg);">3 case studies</span>
+      </div>
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-image">
+            <span class="card-image-label">Case study</span>
+            <!-- Shipped badge -->
+            <span class="sticker-badge shipped dot">Shipped</span>
+          </div>
+          <div class="card-body">
+            <p class="card-meta">2024 · Acme Corp</p>
+            <h3 class="card-title">Redesigning the core checkout flow</h3>
+            <p class="card-summary">Reduced drop-off by <span class="sticker-highlight">31%</span> by rethinking the payment step from first principles.</p>
+            <div class="tags">
+              <span class="tag">0→1</span>
+              <span class="tag muted">B2C</span>
+              <span class="tag muted">Research</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <span class="card-image-label">Case study</span>
+            <!-- Ongoing badge -->
+            <span class="sticker-badge ongoing dot">Ongoing</span>
+          </div>
+          <div class="card-body">
+            <p class="card-meta">2023 · Studio B</p>
+            <h3 class="card-title">A dashboard for operations teams</h3>
+            <p class="card-summary">Replaced a spreadsheet-driven workflow with a purpose-built tool for <span class="sticker-highlight">200+ daily users</span>.</p>
+            <div class="tags">
+              <span class="tag">B2B</span>
+              <span class="tag muted">SaaS</span>
+              <span class="tag muted">Systems</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <span class="card-image-label">Case study</span>
+            <span class="sticker-badge shipped dot">Shipped</span>
+          </div>
+          <div class="card-body">
+            <p class="card-meta">2022 · Freelance</p>
+            <h3 class="card-title">Mobile onboarding for a fintech app</h3>
+            <p class="card-summary">Activation rate improved by <span class="sticker-highlight">2×</span> after rethinking how we introduce trust early.</p>
+            <div class="tags">
+              <span class="tag">Mobile</span>
+              <span class="tag muted">Fintech</span>
+              <span class="tag muted">Growth</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Writing preview -->
+    <section class="writing">
+      <p class="section-label">Written</p>
+      <div class="writing-list">
+
+        <div class="writing-item">
+          <span class="writing-date">Mar 2025</span>
+          <span class="writing-title">On the difference between taste and judgment</span>
+          <span class="writing-time">5 min</span>
+        </div>
+
+        <div class="writing-item">
+          <span class="writing-date">Jan 2025</span>
+          <span class="writing-title">Why most product roadmaps are fiction</span>
+          <span class="writing-time">8 min</span>
+        </div>
+
+        <div class="writing-item">
+          <span class="writing-date">Nov 2024</span>
+          <span class="writing-title">The case for slower, smaller bets</span>
+          <span class="writing-time">4 min</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span class="footer-name">Your Name · 2026</span>
+      <div class="footer-links">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Email</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Scroll reveal for story beats
+    const beats = document.querySelectorAll('.story-beat');
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.15, rootMargin: '-40px' }
+    );
+    beats.forEach((b, i) => {
+      b.style.transitionDelay = `${i * 0.1}s`;
+      observer.observe(b);
+    });
+
+    // Nav blur on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.backdropFilter = 'blur(12px)';
+        nav.style.background = 'rgba(250,248,244,0.82)';
+        nav.style.borderBottomColor = 'var(--border)';
+      } else {
+        nav.style.backdropFilter = '';
+        nav.style.background = '';
+        nav.style.borderBottomColor = 'transparent';
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
