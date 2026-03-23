@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant, DM_Sans } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 import GrainOverlay from "@/components/ui/GrainOverlay";
 import MeshGradient from "@/components/ui/MeshGradient";
 
-const dmSerifDisplay = DM_Serif_Display({
-  variable: "--font-dm-serif",
+const cormorant = Cormorant({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSerifDisplay.variable} ${plusJakartaSans.variable} ${GeistMono.variable}`}
+      className={`${cormorant.variable} ${dmSans.variable} ${GeistMono.variable}`}
     >
 <body className="antialiased">
         <MeshGradient />

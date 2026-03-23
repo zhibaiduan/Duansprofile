@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { bodoniModa } from "@/lib/fonts";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -38,6 +39,15 @@ export default function Hero({
   const prefersReduced = useReducedMotion();
   const imgRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ rotX: 0, rotY: 0, hovering: false });
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 40) setScrolled(true);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (prefersReduced) return;
@@ -65,9 +75,26 @@ export default function Hero({
           className="flex flex-col items-center md:items-start"
           {...block(0.1, 50)}
         >
+          <div className="relative w-[220px] md:w-[300px]">
+            {/* Backlight — follows tilt direction */}
+            <motion.div
+              className="absolute rounded-3xl pointer-events-none"
+              style={{
+                inset: "-40px",
+                background: "radial-gradient(ellipse at 50% 60%, #5b7a52 0%, transparent 65%)",
+                filter: "blur(55px)",
+              }}
+              animate={{
+                opacity: tilt.hovering ? 0.45 : 0,
+                x: tilt.rotY * 3,
+                y: -tilt.rotX * 2,
+                scale: tilt.hovering ? 1.05 : 0.85,
+              }}
+              transition={{ duration: tilt.hovering ? 0.12 : 0.7, ease: "easeOut" }}
+            />
           <div
             ref={imgRef}
-            className="w-[220px] md:w-[300px] cursor-default relative"
+            className="w-full cursor-default relative"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
@@ -101,6 +128,7 @@ export default function Hero({
               </div>
             )}
           </div>
+          </div>
           {photoCaption && (
             <p className="mt-3 font-mono text-[10px] tracking-[0.08em] text-text-secondary/60 text-center md:text-left">
               {photoCaption}
@@ -116,10 +144,12 @@ export default function Hero({
             <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-text-secondary mb-3">
               Hey, I&apos;m
             </p>
-            <h1 className="font-serif text-[clamp(2.8rem,6vw,4.5rem)] leading-[1.08] tracking-[-0.02em] text-text-primary mb-6">
+            <h1 className={`${bodoniModa.className} text-[clamp(2.8rem,6vw,4.5rem)] leading-[1.08] tracking-[-0.02em] text-text-primary mb-6`}>
               {firstName}
               <br />
               <em className="not-italic text-accent">{lastName}</em>
+              {" "}
+              <span className="not-italic">👋</span>
             </h1>
           </motion.div>
 
@@ -140,7 +170,7 @@ export default function Hero({
             <div className="flex items-center gap-8">
               {stats.map(({ value, label }) => (
                 <div key={label} className="flex flex-col gap-0.5">
-                  <span className="font-serif text-3xl font-bold leading-none text-[#c07a56]">
+                  <span className="font-serif text-3xl font-bold leading-none text-[#5b7a52]">
                     {value}
                   </span>
                   <span className="font-mono text-xs uppercase tracking-wider text-[#78716c] mt-1">
@@ -152,6 +182,35 @@ export default function Hero({
           )}
         </div>
       </div>
+      {/* Scroll hint */}
+      <motion.div
+        className="flex flex-col items-center gap-2 mt-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: scrolled ? 0 : 1 }}
+        transition={{ duration: 0.6, ease: EASE, delay: scrolled ? 0 : 3.5 }}
+        aria-hidden
+      >
+        <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-text-secondary/50">
+          scroll
+        </span>
+        <motion.svg
+          width="16"
+          height="24"
+          viewBox="0 0 16 24"
+          fill="none"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <path
+            d="M8 2L8 18M8 18L3 13M8 18L13 13"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-text-secondary/40"
+          />
+        </motion.svg>
+      </motion.div>
     </section>
   );
 }

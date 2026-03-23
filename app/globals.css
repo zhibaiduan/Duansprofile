@@ -8,12 +8,12 @@
   --color-card: #FFFFFF;
   --color-text-primary: #1C1917;
   --color-text-secondary: #78716C;
-  --color-accent: #C07A56;
+  --color-accent: #5B7A52;
   --color-border: #E8E0D5;
 
   /* ── Fonts ────────────────────────────────────────────────── */
-  --font-serif: var(--font-dm-serif), "DM Serif Display", serif;
-  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  --font-serif: var(--font-cormorant), "Cormorant", serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", sans-serif;
   --font-mono: var(--font-geist-mono), "Geist Mono", monospace;
 
   /* ── Shadows ──────────────────────────────────────────────── */
