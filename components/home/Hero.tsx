@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+});
 
 interface StatItem {
   value: string;
@@ -53,7 +59,12 @@ export default function Hero({
     <section id="hero" className="mx-auto max-w-5xl px-6 pt-[8rem] pb-16">
       <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8 md:gap-20 items-start">
         {/* Photo column */}
-        <div className="flex flex-col items-center md:items-start">
+        <motion.div
+          className="flex flex-col items-center md:items-start"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        >
           <div
             ref={imgRef}
             className="w-[220px] md:w-[300px] cursor-default relative"
@@ -95,26 +106,33 @@ export default function Hero({
               {photoCaption}
             </p>
           )}
-        </div>
+        </motion.div>
 
         {/* Content column */}
         <div className="flex flex-col justify-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-text-secondary mb-3">
+          <motion.p
+            {...fadeUp(0.05)}
+            className="font-mono text-[11px] uppercase tracking-[0.12em] text-text-secondary mb-3"
+          >
             Hey, I&apos;m
-          </p>
-          <h1 className="font-serif text-[clamp(2.8rem,6vw,4.5rem)] leading-[1.08] tracking-[-0.02em] text-text-primary mb-6">
+          </motion.p>
+          <motion.h1
+            {...fadeUp(0.15)}
+            className="font-serif text-[clamp(2.8rem,6vw,4.5rem)] leading-[1.08] tracking-[-0.02em] text-text-primary mb-6"
+          >
             {firstName}
             <br />
             <em className="not-italic text-accent">{lastName}</em>
-          </h1>
+          </motion.h1>
           <div className="flex flex-col gap-4 mb-8">
             {bio.map((paragraph, i) => (
-              <p
+              <motion.p
                 key={i}
+                {...fadeUp(0.28 + i * 0.1)}
                 className="font-sans text-[15px] leading-[1.9] text-text-secondary"
               >
                 {paragraph}
-              </p>
+              </motion.p>
             ))}
           </div>
 

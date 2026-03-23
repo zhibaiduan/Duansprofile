@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Nav() {
@@ -100,27 +101,47 @@ export default function Nav() {
       </nav>
 
       {/* Mobile dropdown */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-border bg-bg/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <Link
-            href="/written"
-            className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
-            onClick={() => setMenuOpen(false)}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden border-t border-border bg-bg/95 backdrop-blur-md overflow-hidden"
           >
-            Writing
-          </Link>
-        </div>
-      )}
+            <div className="px-6 py-4 flex flex-col gap-4">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: i * 0.04 }}
+                  className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: navLinks.length * 0.04 }}
+              >
+                <Link
+                  href="/written"
+                  className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Writing
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

@@ -29,12 +29,13 @@ export default function ProjectsSection({
               Working Cases
             </h2>
             <div className="grid grid-cols-1 gap-4">
-              {work.map((project) => (
+              {work.map((project, i) => (
                 <ProjectCard
                   key={project.slug}
                   project={project}
                   variant="work"
                   rotationDeg={getRotationFromSlug(project.slug, "work")}
+                  index={i}
                 />
               ))}
             </div>
@@ -47,12 +48,13 @@ export default function ProjectsSection({
               Side Projects
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {side.map((project) => (
+              {side.map((project, i) => (
                 <ProjectCard
                   key={project.slug}
                   project={project}
                   variant="side"
                   rotationDeg={getRotationFromSlug(project.slug, "side")}
+                  index={i}
                 />
               ))}
             </div>
@@ -65,12 +67,13 @@ export default function ProjectsSection({
               Academic Projects
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-              {academic.map((project) => (
+              {academic.map((project, i) => (
                 <ProjectCard
                   key={project.slug}
                   project={project}
                   variant="academic"
                   rotationDeg={getRotationFromSlug(project.slug, "academic")}
+                  index={i}
                 />
               ))}
             </div>
@@ -83,12 +86,13 @@ export default function ProjectsSection({
               Outside of Work
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {hobby.map((project) => (
+              {hobby.map((project, i) => (
                 <ProjectCard
                   key={project.slug}
                   project={project}
                   variant="hobby"
                   rotationDeg={getRotationFromSlug(project.slug, "hobby")}
+                  index={i}
                 />
               ))}
             </div>

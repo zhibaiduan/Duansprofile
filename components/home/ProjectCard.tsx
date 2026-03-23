@@ -14,6 +14,7 @@ interface ProjectCardProps {
   project: WorkProject | SideProject | AcademicProject | HobbyItem;
   variant: "work" | "side" | "academic" | "hobby";
   rotationDeg: number;
+  index?: number;
 }
 
 const noiseTexture = `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
@@ -43,6 +44,7 @@ export default function ProjectCard({
   project,
   variant,
   rotationDeg,
+  index = 0,
 }: ProjectCardProps) {
   if (variant === "work") {
     const p = project as WorkProject;
@@ -50,8 +52,8 @@ export default function ProjectCard({
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
         <Link href={`/projects/work/${p.slug}`} className="block">
@@ -130,8 +132,8 @@ export default function ProjectCard({
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
         <Link href={`/projects/side/${p.slug}`} className="block h-full">
@@ -190,8 +192,8 @@ export default function ProjectCard({
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
         <Link href={`/projects/academic/${p.slug}`} className="block h-full">
@@ -251,8 +253,8 @@ export default function ProjectCard({
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
       whileHover={{ y: -8, scale: 1.02 }}
       onClick={() => p.notice && setOpen(true)}
       className={`bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 hover:shadow-[0px_12px_32px_0px_rgba(28,25,23,0.12)] group relative overflow-hidden ${p.notice ? "cursor-pointer" : "cursor-default"}`}
