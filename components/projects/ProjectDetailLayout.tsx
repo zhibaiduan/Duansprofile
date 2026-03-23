@@ -23,7 +23,7 @@ export default function ProjectDetailLayout({
 
       {/* Fixed nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#faf8f4]/95 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-0 py-5 flex items-center gap-5">
+        <div className="max-w-4xl mx-auto px-6 py-5 flex items-center gap-5">
           <Link
             href={backHref}
             className="flex items-center gap-2 text-[#78716c] hover:text-[#1c1917] transition-colors"
@@ -32,19 +32,19 @@ export default function ProjectDetailLayout({
             <span className="text-sm font-sans">Back</span>
           </Link>
           {navItems.map((item) => (
-            <>
-              <span key={`sep-${item}`} className="text-[#e8e0d5]">·</span>
-              <span key={item} className="font-mono text-xs text-[#78716c] uppercase tracking-wider">
+            <span key={item} className="hidden sm:contents">
+              <span className="text-[#e8e0d5]">·</span>
+              <span className="font-mono text-xs text-[#78716c] uppercase tracking-wider">
                 {item}
               </span>
-            </>
+            </span>
           ))}
         </div>
       </nav>
 
       {/* Main */}
       <main className="pt-16 pb-32">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-6">
           {children}
         </div>
       </main>

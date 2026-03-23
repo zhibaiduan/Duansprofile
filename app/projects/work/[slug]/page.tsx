@@ -37,16 +37,16 @@ export default async function WorkProjectPage({
       navItems={[p.company, String(p.year)]}
     >
       {/* Header */}
-      <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-serif text-[#1c1917] mb-2 leading-[1.1]">
+      <div className="pt-10 mb-12">
+        <h1 className="text-[1.9rem] md:text-5xl font-serif text-[#1c1917] mb-2 leading-[1.1]">
           {p.title}
         </h1>
         {p.subtitle && (
-          <p className="text-xl md:text-2xl font-serif text-[#78716c] mb-4 leading-[1.2] italic">
+          <p className="text-lg md:text-2xl font-serif text-[#78716c] mb-4 leading-[1.2] italic">
             {p.subtitle}
           </p>
         )}
-        <p className="text-lg text-text-secondary mb-6 leading-relaxed max-w-2xl font-sans">
+        <p className="text-base md:text-lg text-text-secondary mb-6 leading-relaxed max-w-2xl font-sans">
           {p.summary}
         </p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-5">

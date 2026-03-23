@@ -60,9 +60,9 @@ function VideoPlayer({ src, poster, width }: { src: string; poster?: string; wid
 
 function VideoWithNotes({ src, poster, notes = [] }: { src: string; poster?: string; notes?: string[] }) {
   return (
-    <div className="mt-2 mb-8 grid grid-cols-3 gap-6 items-start">
+    <div className="mt-2 mb-8 grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
       {/* Video — 2/3 */}
-      <div className="col-span-2 rounded-xl overflow-hidden border border-[#e7e5e4] shadow-[0px_4px_16px_0px_rgba(28,25,23,0.08)]">
+      <div className="sm:col-span-2 rounded-xl overflow-hidden border border-[#e7e5e4] shadow-[0px_4px_16px_0px_rgba(28,25,23,0.08)]">
         <video
           src={src}
           poster={poster}
@@ -75,7 +75,7 @@ function VideoWithNotes({ src, poster, notes = [] }: { src: string; poster?: str
       </div>
 
       {/* Notes — 1/3 */}
-      <div className="col-span-1 flex flex-col gap-4 py-1">
+      <div className="sm:col-span-1 flex flex-col gap-4 py-1">
         {notes.map((note, i) => (
           <p key={i} className="text-sm text-[#78716c] leading-relaxed font-sans">
             {note}

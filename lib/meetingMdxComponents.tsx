@@ -79,10 +79,19 @@ export function SectionLabel({ children, first }: { children: React.ReactNode; f
 
 // ─── HookGrid ────────────────────────────────────────────────────────────────
 interface HookItem { icon: string; title: string; description: string }
+const responsiveCols: Record<number, string> = {
+  1: "grid-cols-1",
+  2: "grid-cols-1 sm:grid-cols-2",
+  3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+  4: "grid-cols-2 sm:grid-cols-4",
+};
+function colsClass(n: number) {
+  return responsiveCols[n] ?? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+}
+
 export function HookGrid({ items }: { items: HookItem[] }) {
   return (
-    <div className="grid gap-[1px] bg-[#e7e5e4] border border-[#e7e5e4] rounded-xl overflow-hidden my-8"
-      style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}>
+    <div className={`grid gap-[1px] bg-[#e7e5e4] border border-[#e7e5e4] rounded-xl overflow-hidden my-8 ${colsClass(items.length)}`}>
       {items.map((item, i) => {
         const active = i === items.length - 1;
         return (
@@ -181,8 +190,7 @@ export function ArchDiagram() {
 interface StatItem { value: string; label: string }
 export function StatRow({ items }: { items: StatItem[] }) {
   return (
-    <div className="grid gap-[1px] bg-[#e7e5e4] border border-[#e7e5e4] rounded-xl overflow-hidden my-8"
-      style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}>
+    <div className={`grid gap-[1px] bg-[#e7e5e4] border border-[#e7e5e4] rounded-xl overflow-hidden my-8 ${colsClass(items.length)}`}>
       {items.map((item, i) => (
         <div key={i} className="bg-[#faf8f4] px-6 py-5 text-center">
           <p className="text-3xl font-serif text-[#1c1917] leading-none mb-1">{item.value}</p>
@@ -209,8 +217,7 @@ const badgeStyles = {
 };
 export function ImpactGrid({ cards }: { cards: ImpactCardData[] }) {
   return (
-    <div className="grid gap-[1px] bg-[#e7e5e4] border border-[#e7e5e4] rounded-xl overflow-hidden my-8"
-      style={{ gridTemplateColumns: `repeat(${cards.length}, 1fr)` }}>
+    <div className={`grid gap-[1px] bg-[#e7e5e4] border border-[#e7e5e4] rounded-xl overflow-hidden my-8 ${colsClass(cards.length)}`}>
       {cards.map((card, i) => (
         <div key={i} className="bg-[#faf8f4] p-6 flex flex-col gap-3">
           <div className="w-7 h-7 rounded-md bg-[#1c1917] text-white text-xs font-mono flex items-center justify-center flex-shrink-0">

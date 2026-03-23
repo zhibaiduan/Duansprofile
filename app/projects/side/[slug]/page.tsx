@@ -28,11 +28,11 @@ export default async function SideProjectPage({
       navItems={["Side Project", p.year ? String(p.year) : null].filter(Boolean) as string[]}
     >
       {/* Header */}
-      <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-serif text-[#1c1917] mb-4 leading-[1.1]">
+      <div className="pt-10 mb-12">
+        <h1 className="text-[1.9rem] md:text-5xl font-serif text-[#1c1917] mb-4 leading-[1.1]">
           {p.title}
         </h1>
-        <p className="text-lg text-text-secondary mb-6 leading-relaxed font-sans">
+        <p className="text-base md:text-lg text-text-secondary mb-6 leading-relaxed font-sans">
           {p.summary}
         </p>
 

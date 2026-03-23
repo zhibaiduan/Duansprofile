@@ -60,12 +60,12 @@ export default function ProjectCard({
           <motion.article
             whileHover={{ rotate: 0, y: -5, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.5 }}
-            className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 overflow-hidden relative group cursor-pointer flex flex-row hover:shadow-[0px_12px_40px_0px_rgba(28,25,23,0.12)] transition-shadow duration-500"
+            className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 overflow-hidden relative group cursor-pointer flex flex-col sm:flex-row hover:shadow-[0px_12px_40px_0px_rgba(28,25,23,0.12)] transition-shadow duration-500"
           >
             {/* Hover glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
             {/* Image — left */}
-            <div className="relative overflow-hidden" style={{ flex: '0 0 32%' }}>
+            <div className="relative overflow-hidden h-44 sm:h-auto sm:w-[32%]">
               {p.coverImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={p.coverImage} alt={p.title} className="absolute inset-0 w-full h-full object-cover object-top" />
