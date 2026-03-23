@@ -17,7 +17,7 @@ export default function ProjectDetailLayout({
       {/* Ambient glow */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
         <div className="absolute top-[10%] left-[20%] w-[600px] h-[600px] rounded-full blur-3xl bg-[#f5e6d3] opacity-30" />
-        <div className="absolute top-[40%] right-[10%] w-[500px] h-[500px] rounded-full blur-3xl bg-[#c07a56] opacity-[0.06]" />
+        <div className="absolute top-[40%] right-[10%] w-[500px] h-[500px] rounded-full blur-3xl bg-[#5b7a52] opacity-[0.06]" />
         <div className="absolute bottom-[10%] left-[30%] w-[700px] h-[700px] rounded-full blur-3xl bg-[#e8d5c4] opacity-25" />
       </div>
 

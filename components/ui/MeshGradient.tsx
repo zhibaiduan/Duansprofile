@@ -7,36 +7,45 @@ export default function MeshGradient() {
       {/* Base warm background */}
       <div className="absolute inset-0 bg-bg" />
 
-      {/* Blob 1 — warm sand, top-left */}
+      {/* Blob A — sage glow, top-right behind photo */}
       <div
-        className="absolute w-[80vw] h-[80vw] rounded-full blur-[120px] opacity-50"
+        className="absolute blur-[160px] opacity-15"
         style={{
-          background: "radial-gradient(circle, #F5E6D3 0%, transparent 70%)",
-          top: "-20%",
-          left: "-10%",
-          animation: "mesh-blob-1 20s ease-in-out alternate infinite",
+          background: "#5B7A52",
+          width: "60vw",
+          height: "70vw",
+          top: "-15%",
+          right: "-10%",
+          borderRadius: "62% 38% 55% 45% / 48% 58% 42% 52%",
+          animation: "mesh-blob-2 28s ease-in-out alternate infinite",
         }}
       />
 
-      {/* Blob 2 — soft terracotta, top-right */}
+      {/* Blob B — warm amber, top-left ambient fill */}
       <div
-        className="absolute w-[60vw] h-[60vw] rounded-full blur-[150px] opacity-35"
+        className="absolute blur-[120px] opacity-60"
         style={{
-          background: "radial-gradient(circle, #E8C4A8 0%, transparent 70%)",
-          top: "10%",
-          right: "-15%",
-          animation: "mesh-blob-2 25s ease-in-out alternate infinite",
+          background: "radial-gradient(ellipse, #F0D4B0 0%, transparent 70%)",
+          width: "85vw",
+          height: "60vw",
+          top: "-10%",
+          left: "-15%",
+          borderRadius: "42% 58% 38% 62% / 55% 45% 60% 40%",
+          animation: "mesh-blob-1 22s ease-in-out alternate infinite",
         }}
       />
 
-      {/* Blob 3 — cream, bottom-center */}
+      {/* Blob C — golden, mid-page depth */}
       <div
-        className="absolute w-[70vw] h-[70vw] rounded-full blur-[100px] opacity-40"
+        className="absolute blur-[140px] opacity-45"
         style={{
-          background: "radial-gradient(circle, #FFF3E8 0%, transparent 70%)",
-          bottom: "-25%",
-          left: "15%",
-          animation: "mesh-blob-3 22s ease-in-out alternate infinite",
+          background: "radial-gradient(ellipse, #E8C49A 0%, transparent 65%)",
+          width: "70vw",
+          height: "60vw",
+          top: "40%",
+          left: "-8%",
+          borderRadius: "68% 32% 44% 56% / 38% 62% 38% 62%",
+          animation: "mesh-blob-3 24s ease-in-out alternate infinite",
         }}
       />
     </div>

@@ -59,7 +59,7 @@ export default function Timeline({ subtitle }: TimelineProps) {
       className="py-24 px-6 bg-[#faf8f4] relative overflow-hidden"
     >
       {/* Ambient glow orbs */}
-      <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-[#c07a56]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-[#5b7a52]/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-20 left-1/4 w-[450px] h-[450px] bg-[#f59e0b]/4 rounded-full blur-[110px] pointer-events-none" />
 
       {/* Noise texture */}
@@ -132,14 +132,14 @@ export default function Timeline({ subtitle }: TimelineProps) {
                       <motion.div
                         animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute inset-0 w-3 h-3 rounded-full bg-[#c07a56]"
+                        className="absolute inset-0 w-3 h-3 rounded-full bg-[#5b7a52]"
                       />
                     )}
                     <div
                       className={`w-3 h-3 rounded-full border-2 relative transition-all duration-300 ${
                         item.highlight
-                          ? "border-[#c07a56] bg-[#c07a56] shadow-[0_0_12px_rgba(192,122,86,0.6)]"
-                          : "border-[#c07a56]/40 bg-white"
+                          ? "border-[#5b7a52] bg-[#5b7a52] shadow-[0_0_12px_rgba(192,122,86,0.6)]"
+                          : "border-[#5b7a52]/40 bg-white"
                       }`}
                     />
                   </motion.div>
@@ -153,13 +153,13 @@ export default function Timeline({ subtitle }: TimelineProps) {
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className={`bg-white/80 backdrop-blur-md rounded-xl p-5 shadow-[0px_2px_12px_0px_rgba(28,25,23,0.08)] border border-white/60 cursor-default relative overflow-hidden h-full ${
-                    item.highlight ? "ring-2 ring-[#c07a56]/30" : ""
+                    item.highlight ? "ring-2 ring-[#5b7a52]/30" : ""
                   }`}
                 >
                   {/* Inner glow */}
-                  <div className="absolute -top-8 -right-8 w-24 h-24 bg-[#c07a56]/8 rounded-full blur-[40px] pointer-events-none" />
+                  <div className="absolute -top-8 -right-8 w-24 h-24 bg-[#5b7a52]/8 rounded-full blur-[40px] pointer-events-none" />
                   {item.highlight && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#c07a56]/8 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/8 via-transparent to-transparent pointer-events-none" />
                   )}
                   {/* Noise */}
                   <div
@@ -176,7 +176,7 @@ export default function Timeline({ subtitle }: TimelineProps) {
                       <span
                         className={`px-2.5 py-1 rounded-full text-[11px] font-bold font-mono tracking-wider ${
                           item.highlight
-                            ? "bg-[#c07a56]/15 text-[#c07a56]"
+                            ? "bg-[#5b7a52]/15 text-[#5b7a52]"
                             : "bg-[#78716c]/10 text-[#78716c]"
                         }`}
                       >
@@ -186,7 +186,7 @@ export default function Timeline({ subtitle }: TimelineProps) {
                         <motion.div
                           animate={{ scale: [1, 1.3, 1] }}
                           transition={{ duration: 2, repeat: Infinity }}
-                          className="w-1.5 h-1.5 rounded-full bg-[#c07a56]"
+                          className="w-1.5 h-1.5 rounded-full bg-[#5b7a52]"
                         />
                       )}
                     </div>

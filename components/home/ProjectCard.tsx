@@ -23,7 +23,7 @@ function PreviewArea() {
   return (
     <div className="h-40 bg-gradient-to-br from-[#f5f1ea] via-[#faf8f4] to-[#e8e0d5] relative overflow-hidden flex items-center justify-center">
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-[#c07a56]/15 to-[#f59e0b]/10"
+        className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/15 to-[#f59e0b]/10"
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -62,6 +62,8 @@ export default function ProjectCard({
             transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.5 }}
             className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 overflow-hidden relative group cursor-pointer flex flex-row hover:shadow-[0px_12px_40px_0px_rgba(28,25,23,0.12)] transition-shadow duration-500"
           >
+            {/* Hover glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
             {/* Image — left */}
             <div className="relative overflow-hidden" style={{ flex: '0 0 32%' }}>
               {p.coverImage ? (
@@ -70,7 +72,7 @@ export default function ProjectCard({
               ) : (
                 <div className="absolute inset-0 bg-gradient-to-br from-[#f5f1ea] via-[#faf8f4] to-[#e8e0d5] flex items-center justify-center">
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-[#c07a56]/15 to-[#f59e0b]/10"
+                    className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/15 to-[#f59e0b]/10"
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
@@ -90,7 +92,7 @@ export default function ProjectCard({
                 {p.company} · {p.year}
               </p>
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-base font-semibold text-[#1c1917] leading-snug font-sans flex-1">
+                <h3 className="text-base font-semibold text-[#1c1917] leading-snug font-sans flex-1 group-hover:text-[#5b7a52] transition-colors duration-300">
                   {p.title}
                 </h3>
                 <motion.span
@@ -142,6 +144,8 @@ export default function ProjectCard({
             transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.5 }}
             className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 overflow-hidden relative group cursor-pointer flex flex-col h-full hover:shadow-[0px_12px_40px_0px_rgba(28,25,23,0.12)] transition-shadow duration-500"
           >
+            {/* Hover glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
             {p.coverImage ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={p.coverImage} alt={p.title} className="h-40 w-full object-cover scale-110" />
@@ -153,7 +157,7 @@ export default function ProjectCard({
                 Personal · {p.year}
               </p>
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-base font-semibold text-[#1c1917] leading-snug font-sans flex-1">
+                <h3 className="text-base font-semibold text-[#1c1917] leading-snug font-sans flex-1 group-hover:text-[#5b7a52] transition-colors duration-300">
                   {p.title}
                 </h3>
                 <motion.span
@@ -202,12 +206,14 @@ export default function ProjectCard({
             transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.5 }}
             className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 overflow-hidden relative group cursor-pointer flex flex-col h-full hover:shadow-[0px_12px_40px_0px_rgba(28,25,23,0.12)] transition-shadow duration-500"
           >
+            {/* Hover glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
             <div className="p-5 space-y-3 flex flex-col flex-1 bg-white/40 backdrop-blur-sm relative z-10">
               <p className="text-xs font-medium text-[#78716c] tracking-wider uppercase font-mono">
                 {[p.context, p.institution, p.year].filter(Boolean).join(" · ")}
               </p>
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-[15px] font-semibold text-[#1c1917] leading-snug font-sans flex-1">
+                <h3 className="text-[15px] font-semibold text-[#1c1917] leading-snug font-sans flex-1 group-hover:text-[#5b7a52] transition-colors duration-300">
                   {p.title}
                 </h3>
                 <motion.span
@@ -260,7 +266,7 @@ export default function ProjectCard({
       className={`bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 hover:shadow-[0px_12px_32px_0px_rgba(28,25,23,0.12)] group relative overflow-hidden ${p.notice ? "cursor-pointer" : "cursor-default"}`}
     >
       {/* Hover glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#c07a56]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
       <div className="relative z-10 space-y-4">
         <motion.div
@@ -272,7 +278,7 @@ export default function ProjectCard({
         </motion.div>
 
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold text-[#1c1917] font-sans group-hover:text-[#c07a56] transition-colors duration-300">
+          <h3 className="text-lg font-semibold text-[#1c1917] font-sans group-hover:text-[#5b7a52] transition-colors duration-300">
             {p.title}
           </h3>
           <p className="text-sm text-[#78716c] leading-relaxed font-sans group-hover:text-[#57534e] transition-colors duration-300">
@@ -283,7 +289,7 @@ export default function ProjectCard({
 
       {/* Bottom gradient bar */}
       <motion.div
-        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#c07a56] to-[#f59e0b] origin-left"
+        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#5b7a52] to-[#f59e0b] origin-left"
         initial={{ scaleX: 0 }}
         whileHover={{ scaleX: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -330,7 +336,7 @@ export default function ProjectCard({
                     href={p.noticeLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-[#c07a56] hover:underline"
+                    className="text-xs font-mono text-[#5b7a52] hover:underline"
                   >
                     Watch →
                   </a>

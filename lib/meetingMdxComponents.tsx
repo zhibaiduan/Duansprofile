@@ -164,7 +164,7 @@ export function ArchDiagram() {
         <rect x="560" y="64" width="100" height="30" rx="6" fill="rgba(13,148,136,0.08)" stroke="rgba(13,148,136,0.2)" strokeWidth="1"/>
         <text x="610" y="84" textAnchor="middle" fontFamily="system-ui,sans-serif" fontSize="11" fontWeight="500" fill="#0d9488">Project Portal</text>
         <rect x="560" y="108" width="100" height="30" rx="6" fill="rgba(192,122,86,0.08)" stroke="rgba(192,122,86,0.2)" strokeWidth="1"/>
-        <text x="610" y="128" textAnchor="middle" fontFamily="system-ui,sans-serif" fontSize="11" fontWeight="500" fill="#c07a56">Task Platform</text>
+        <text x="610" y="128" textAnchor="middle" fontFamily="system-ui,sans-serif" fontSize="11" fontWeight="500" fill="#5b7a52">Task Platform</text>
         {/* Arrows */}
         <line x1="520" y1="218" x2="558" y2="35" stroke="rgba(37,99,235,0.35)" strokeWidth="1" markerEnd="url(#arr)"/>
         <line x1="522" y1="240" x2="558" y2="79" stroke="rgba(13,148,136,0.35)" strokeWidth="1" markerEnd="url(#arr)"/>

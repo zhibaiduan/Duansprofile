@@ -21,12 +21,12 @@ export default function ContactSection() {
       className="pt-16 pb-32 px-6 relative"
     >
       {/* Glow orbs */}
-      <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-[#c07a56]/10 rounded-full blur-[120px] animate-pulse pointer-events-none" />
+      <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-[#5b7a52]/10 rounded-full blur-[120px] animate-pulse pointer-events-none" />
       <div
         className="absolute bottom-20 left-20 w-[600px] h-[600px] bg-[#f59e0b]/8 rounded-full blur-[140px] animate-pulse pointer-events-none"
         style={{ animationDelay: "1.5s" }}
       />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#c07a56]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#5b7a52]/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Noise texture */}
       <div
@@ -103,8 +103,8 @@ export default function ContactSection() {
               className="w-14 h-14 rounded-full bg-white/70 backdrop-blur-md border border-white/60 shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] hover:shadow-[0px_8px_24px_0px_rgba(28,25,23,0.12)] flex items-center justify-center group relative overflow-hidden transition-shadow"
               aria-label={link.label}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#c07a56]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <link.icon className="w-5 h-5 text-[#c07a56] group-hover:text-[#b36a46] transition-colors relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <link.icon className="w-5 h-5 text-[#5b7a52] group-hover:text-[#4a6542] transition-colors relative z-10" />
             </motion.a>
           ))}
         </motion.div>

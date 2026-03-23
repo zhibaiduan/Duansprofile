@@ -31,7 +31,7 @@ function PdfEmbed({ src }: { src: string }) {
         <a
           href={src}
           download
-          className="text-xs font-mono text-[#c07a56] hover:underline"
+          className="text-xs font-mono text-[#5b7a52] hover:underline"
         >
           Download PDF ↓
         </a>
@@ -124,14 +124,14 @@ export const projectMdxComponents = {
     <li
       className="font-sans text-[#57534e] leading-relaxed relative pl-5
         before:content-[''] before:absolute before:left-0 before:top-[0.72em]
-        before:w-[5px] before:h-[5px] before:rounded-full before:bg-[#c07a56]"
+        before:w-[5px] before:h-[5px] before:rounded-full before:bg-[#5b7a52]"
       {...props}
     />
   ),
 
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className="border-l-2 border-[#c07a56] pl-6 my-12
+      className="border-l-2 border-[#5b7a52] pl-6 my-12
         [&>p]:font-sans [&>p]:text-base [&>p]:text-[#1c1917] [&>p]:mb-3 [&>p]:leading-relaxed [&>p]:not-italic
         [&>p:last-child]:mb-0 [&>p:last-child]:text-sm [&>p:last-child]:text-[#78716c]"
       {...props}
@@ -158,7 +158,7 @@ export const projectMdxComponents = {
 
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className="text-[#c07a56] hover:underline"
+      className="text-[#5b7a52] hover:underline"
       target={props.href?.startsWith("http") ? "_blank" : undefined}
       rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
       {...props}

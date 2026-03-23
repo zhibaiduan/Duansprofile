@@ -68,7 +68,7 @@ export default function ImageGrid({ images: imagesProp, items, label, captions, 
           <div key={i} className="flex flex-col">
             <button
               onClick={() => setLightboxIndex(i)}
-              className="group relative overflow-hidden rounded-lg border border-[#e7e5e4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c07a56]"
+              className="group relative overflow-hidden rounded-lg border border-[#e7e5e4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5b7a52]"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

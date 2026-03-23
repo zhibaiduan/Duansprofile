@@ -65,7 +65,7 @@ export default function ProductGallery({ sections }: ProductGalleryProps) {
                   <button
                     key={i}
                     onClick={() => open(sectionOffset + i)}
-                    className="group relative overflow-hidden rounded-lg border border-[#e7e5e4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c07a56]"
+                    className="group relative overflow-hidden rounded-lg border border-[#e7e5e4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5b7a52]"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img

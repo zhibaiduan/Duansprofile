@@ -59,7 +59,7 @@ export default async function AcademicProjectPage({
           {p.tags.map((tag) => (
             <span
               key={tag}
-              className="px-2 py-1 text-xs font-mono rounded bg-[rgba(28,25,23,0.05)] text-[#78716c]"
+              className="px-3 py-1.5 text-xs font-mono rounded-lg bg-[rgba(28,25,23,0.05)] text-[#78716c]"
             >
               {tag}
             </span>
@@ -81,10 +81,10 @@ export default async function AcademicProjectPage({
           <div className="space-y-6">
             {related.map((proj) => (
               <Link key={proj.slug} href={`/projects/academic/${proj.slug}`} className="block group">
-                <div className="flex items-start justify-between gap-4 pb-6 border-b border-[#e7e5e4] last:border-0 hover:border-[#c07a56] transition-colors">
+                <div className="flex items-start justify-between gap-4 pb-6 border-b border-[#e7e5e4] last:border-0 hover:border-[#5b7a52] transition-colors">
                   <div className="flex-1">
                     <div className="flex items-baseline gap-3 mb-2">
-                      <h4 className="text-lg font-serif text-[#1c1917] group-hover:text-[#c07a56] transition-colors">
+                      <h4 className="text-lg font-serif text-[#1c1917] group-hover:text-[#5b7a52] transition-colors">
                         {proj.title}
                       </h4>
                       <span className="text-xs font-mono text-[#78716c]">{proj.year}</span>
@@ -92,13 +92,13 @@ export default async function AcademicProjectPage({
                     <p className="text-sm text-[#78716c] leading-relaxed mb-3 font-sans">{proj.summary}</p>
                     <div className="flex flex-wrap gap-2">
                       {proj.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 text-xs font-mono text-[#78716c] border border-[#e7e5e4] rounded">
+                        <span key={tag} className="px-3 py-1.5 text-xs font-mono rounded-lg bg-[rgba(28,25,23,0.05)] text-[#78716c]">
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <ArrowLeft className="w-4 h-4 rotate-180 text-[#78716c] group-hover:text-[#c07a56] transition-colors flex-shrink-0 mt-1" />
+                  <ArrowLeft className="w-4 h-4 rotate-180 text-[#78716c] group-hover:text-[#5b7a52] transition-colors flex-shrink-0 mt-1" />
                 </div>
               </Link>
             ))}

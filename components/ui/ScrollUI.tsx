@@ -6,11 +6,10 @@ import { ArrowUp } from "lucide-react";
 
 const sections = [
   { id: "hero", label: "Home" },
-  { id: "timeline", label: "Journey" },
-  { id: "work-cases", label: "Work" },
+  { id: "work-cases", label: "Working Cases" },
   { id: "side", label: "Side Projects" },
-  { id: "academic", label: "Academic" },
-  { id: "think", label: "Hobbies" },
+  { id: "academic", label: "Academic Projects" },
+  { id: "think", label: "Outside of Work" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -64,14 +63,14 @@ export default function ScrollUI() {
                 <div
                   className={`w-2 h-2 rounded-full border-2 transition-all duration-300 ${
                     isActive
-                      ? "border-[#c07a56] bg-[#c07a56] scale-125"
-                      : "border-[#e8e0d5] bg-transparent hover:border-[#c07a56]"
+                      ? "border-[#5b7a52] bg-[#5b7a52] scale-125"
+                      : "border-[#e8e0d5] bg-transparent hover:border-[#5b7a52]"
                   }`}
                 />
                 {isActive && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute inset-0 w-2 h-2 rounded-full bg-[#c07a56]/20"
+                    className="absolute inset-0 w-2 h-2 rounded-full bg-[#5b7a52]/20"
                     initial={false}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
@@ -93,7 +92,7 @@ export default function ScrollUI() {
             whileTap={{ scale: 0.95 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Back to top"
-            className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-[#c07a56] flex items-center justify-center text-white shadow-[0_4px_16px_rgba(192,122,86,0.45)] hover:bg-[#b36a46] transition-colors"
+            className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-[#5b7a52] flex items-center justify-center text-white shadow-[0_4px_16px_rgba(91,122,82,0.45)] hover:bg-[#4a6542] transition-colors"
           >
             <ArrowUp className="w-4 h-4" />
           </motion.button>
