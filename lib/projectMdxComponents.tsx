@@ -58,7 +58,7 @@ function VideoPlayer({ src, poster, width }: { src: string; poster?: string; wid
   );
 }
 
-function VideoWithNotes({ src, poster, notes }: { src: string; poster?: string; notes: string[] }) {
+function VideoWithNotes({ src, poster, notes = [] }: { src: string; poster?: string; notes?: string[] }) {
   return (
     <div className="mt-2 mb-8 grid grid-cols-3 gap-6 items-start">
       {/* Video — 2/3 */}
