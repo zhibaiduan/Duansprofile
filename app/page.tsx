@@ -48,23 +48,23 @@ const timelineNodes = [
 const heroBio: React.ReactNode[] = [
   <>
     I build products that turn complex workflows into{" "}
-    <strong className="font-semibold text-text-primary">systems people actually use</strong>.
+    systems people actually use.
   </>,
   <>
-    Over <strong className="font-semibold text-text-primary">6 years in China</strong>,
-    I led <strong className="font-semibold text-text-primary">two enterprise tools end-to-end</strong>,
-    drove a product <strong className="font-semibold text-text-primary">from beta to public release</strong> on a platform with{" "}
-    <strong className="font-semibold text-text-primary">millions of users</strong>,
-    and initiated <strong className="font-semibold text-text-primary">a low-code engine</strong> from scratch.
+    Over <span className="mark-wave">6 years in China</span>,
+    I led <span className="mark-wave">two enterprise tools end-to-end</span>,
+    drove a product <span className="mark-wave">from beta to public release</span> on a platform with{" "}
+    <span className="mark-wave">millions of users</span>,
+    and initiated <span className="mark-wave">a low-code engine</span> from scratch.
   </>,
   <>
     I&apos;m drawn to problems that sit at the intersection of{" "}
-    <strong className="font-semibold text-text-primary">business complexity and real human use</strong>.
+    business complexity and real human use.
   </>,
   <>
-    Now based in <strong className="font-semibold text-text-primary">Berlin</strong>,
+    Now based in <span className="mark-wave">Berlin</span>,
     completing my Master&apos;s in{" "}
-    <strong className="font-semibold text-text-primary">IT Business and Digitalisation at HTW</strong>,
+    <span className="mark-wave">IT Business and Digitalisation at HTW</span>,
     and ready to bring this into a European team.
   </>,
 ];

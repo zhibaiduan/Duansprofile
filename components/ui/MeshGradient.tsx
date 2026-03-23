@@ -23,7 +23,7 @@ export default function MeshGradient() {
 
       {/* Blob B — warm amber, top-left ambient fill */}
       <div
-        className="absolute blur-[120px] opacity-60"
+        className="absolute blur-[120px] opacity-25"
         style={{
           background: "radial-gradient(ellipse, #F0D4B0 0%, transparent 70%)",
           width: "85vw",

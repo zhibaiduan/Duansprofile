@@ -42,7 +42,7 @@ export default async function AcademicProjectPage({
         <h1 className="text-4xl md:text-5xl font-serif text-[#1c1917] mb-4 leading-[1.1]">
           {p.title}
         </h1>
-        <p className="text-lg text-[#57534e] mb-6 leading-relaxed max-w-2xl font-sans">
+        <p className="text-lg text-text-secondary mb-6 leading-relaxed max-w-2xl font-sans">
           {p.summary}
         </p>
         {infoItems.length > 0 && (

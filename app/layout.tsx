@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Cormorant, DM_Sans } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 import GrainOverlay from "@/components/ui/GrainOverlay";
 import MeshGradient from "@/components/ui/MeshGradient";
 
-const cormorant = Cormorant({
-  variable: "--font-cormorant",
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable} ${GeistMono.variable}`}
+      className={`${playfairDisplay.variable} ${dmSans.variable} ${GeistMono.variable}`}
     >
 <body className="antialiased">
         <MeshGradient />

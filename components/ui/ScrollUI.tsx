@@ -64,7 +64,7 @@ export default function ScrollUI() {
                   className={`w-2 h-2 rounded-full border-2 transition-all duration-300 ${
                     isActive
                       ? "border-[#5b7a52] bg-[#5b7a52] scale-125"
-                      : "border-[#e8e0d5] bg-transparent hover:border-[#5b7a52]"
+                      : "border-[#b8b0a8] bg-transparent hover:border-[#5b7a52]"
                   }`}
                 />
                 {isActive && (

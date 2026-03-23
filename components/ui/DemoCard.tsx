@@ -34,7 +34,7 @@ export default function DemoCard({ title, description, url, link, logo }: DemoCa
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-wider text-[#78716c]/60 mb-1">
+            <p className="font-mono text-xs uppercase tracking-wider text-[#78716c]/60 mb-1">
               {url ? "Live Demo" : "Coming Soon"}
             </p>
             <h4 className="text-base font-semibold text-[#1c1917] font-sans leading-snug group-hover:text-[#5b7a52] transition-colors duration-300">

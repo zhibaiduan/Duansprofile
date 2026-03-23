@@ -78,7 +78,7 @@ export default function Timeline({ subtitle }: TimelineProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-[#1c1917] mb-4 font-serif tracking-tight"
+            className="text-2xl md:text-3xl font-serif text-text-primary mb-4 leading-[1.2] tracking-[-0.02em]"
           >
             My Journey
           </motion.h2>
@@ -192,7 +192,7 @@ export default function Timeline({ subtitle }: TimelineProps) {
                     </div>
 
                     {/* Title */}
-                    <div className="text-base font-bold text-[#1c1917] mb-2 font-sans leading-snug min-h-[44px]">
+                    <div className="text-base font-semibold text-text-primary mb-2 font-sans leading-snug min-h-[44px]">
                       {item.title}
                     </div>
 

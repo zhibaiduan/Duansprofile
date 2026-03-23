@@ -80,15 +80,15 @@ export default function Hero({
             <motion.div
               className="absolute rounded-3xl pointer-events-none"
               style={{
-                inset: "-40px",
-                background: "radial-gradient(ellipse at 50% 60%, #5b7a52 0%, transparent 65%)",
-                filter: "blur(55px)",
+                inset: "-60px",
+                background: "radial-gradient(ellipse at 50% 60%, #5b7a52 0%, transparent 70%)",
+                filter: "blur(40px)",
               }}
               animate={{
-                opacity: tilt.hovering ? 0.45 : 0,
-                x: tilt.rotY * 3,
-                y: -tilt.rotX * 2,
-                scale: tilt.hovering ? 1.05 : 0.85,
+                opacity: tilt.hovering ? 0.3 : 0,
+                x: tilt.rotY * 4,
+                y: -tilt.rotX * 3,
+                scale: tilt.hovering ? 1.15 : 0.85,
               }}
               transition={{ duration: tilt.hovering ? 0.12 : 0.7, ease: "easeOut" }}
             />
@@ -158,7 +158,7 @@ export default function Hero({
             {bio.map((paragraph, i) => (
               <p
                 key={i}
-                className="font-sans text-[15px] leading-[1.9] text-text-secondary"
+                className="font-sans text-[15px] leading-[1.9] text-text-primary"
               >
                 {paragraph}
               </p>
@@ -170,7 +170,7 @@ export default function Hero({
             <div className="flex items-center gap-8">
               {stats.map(({ value, label }) => (
                 <div key={label} className="flex flex-col gap-0.5">
-                  <span className="font-serif text-3xl font-bold leading-none text-[#5b7a52]">
+                  <span className="font-serif text-3xl font-semibold leading-none text-[#5b7a52]">
                     {value}
                   </span>
                   <span className="font-mono text-xs uppercase tracking-wider text-[#78716c] mt-1">

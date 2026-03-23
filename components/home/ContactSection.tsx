@@ -45,10 +45,10 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-serif text-[#1c1917] mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-serif text-text-primary mb-6 leading-[1.1]">
             Let&apos;s Talk
           </h2>
-          <p className="text-lg text-[#78716c] font-sans max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="text-[15px] text-text-secondary font-sans max-w-2xl mx-auto leading-relaxed mb-8">
             Looking to work on{" "}
             <span className="font-semibold text-[#1c1917]">
               automation, enterprise tools, and AI-driven products

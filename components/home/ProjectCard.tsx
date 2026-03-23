@@ -34,7 +34,7 @@ function PreviewArea() {
       />
       <div className="relative z-10 flex flex-col items-center gap-1.5">
         <span className="text-2xl">🚧</span>
-        <span className="font-mono text-[10px] tracking-widest uppercase text-[#a8a29e]">Under Construction</span>
+        <span className="font-mono text-xs tracking-widest uppercase text-[#a8a29e]">Under Construction</span>
       </div>
     </div>
   );
@@ -79,7 +79,7 @@ export default function ProjectCard({
                   />
                   <div className="relative z-10 flex flex-col items-center gap-1.5">
                     <span className="text-2xl">🚧</span>
-                    <span className="font-mono text-[10px] tracking-widest uppercase text-[#a8a29e]">Under Construction</span>
+                    <span className="font-mono text-xs tracking-widest uppercase text-[#a8a29e]">Under Construction</span>
                   </div>
                 </div>
               )}
@@ -96,11 +96,14 @@ export default function ProjectCard({
                   {p.title}
                 </h3>
                 <motion.span
-                  className="text-xl text-[#78716c] flex-shrink-0"
-                  whileHover={{ scale: 1.15, rotate: 45 }}
+                  className="text-[#78716c] flex-shrink-0"
+                  whileHover={{ scale: 1.1, x: 2, y: -2 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
-                  ↗
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 14L14 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                    <path d="M6.5 4H14V11.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </motion.span>
               </div>
               <p className="text-sm text-[#78716c] leading-relaxed font-sans group-hover:text-[#57534e] transition-colors duration-300 flex-1 line-clamp-3">
@@ -161,11 +164,14 @@ export default function ProjectCard({
                   {p.title}
                 </h3>
                 <motion.span
-                  className="text-xl text-[#78716c] flex-shrink-0"
-                  whileHover={{ scale: 1.15, rotate: 45 }}
+                  className="text-[#78716c] flex-shrink-0"
+                  whileHover={{ scale: 1.1, x: 2, y: -2 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
-                  ↗
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 14L14 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                    <path d="M6.5 4H14V11.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </motion.span>
               </div>
               <p className="text-sm text-[#78716c] leading-relaxed font-sans group-hover:text-[#57534e] transition-colors duration-300 flex-1 line-clamp-4">
@@ -213,15 +219,18 @@ export default function ProjectCard({
                 {[p.context, p.institution, p.year].filter(Boolean).join(" · ")}
               </p>
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-[15px] font-semibold text-[#1c1917] leading-snug font-sans flex-1 group-hover:text-[#5b7a52] transition-colors duration-300">
+                <h3 className="text-base font-semibold text-[#1c1917] leading-snug font-sans flex-1 group-hover:text-[#5b7a52] transition-colors duration-300">
                   {p.title}
                 </h3>
                 <motion.span
-                  className="text-base text-[#78716c] flex-shrink-0"
-                  whileHover={{ scale: 1.15, rotate: 45 }}
+                  className="text-[#78716c] flex-shrink-0"
+                  whileHover={{ scale: 1.1, x: 2, y: -2 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
-                  ↗
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 14L14 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                    <path d="M6.5 4H14V11.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </motion.span>
               </div>
               <p className="text-sm text-[#78716c] leading-relaxed font-sans group-hover:text-[#57534e] transition-colors duration-300 flex-1 line-clamp-4">

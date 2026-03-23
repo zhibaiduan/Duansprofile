@@ -42,11 +42,11 @@ export default async function WorkProjectPage({
           {p.title}
         </h1>
         {p.subtitle && (
-          <p className="text-xl md:text-2xl font-serif text-[#78716c] mb-4 leading-snug italic">
+          <p className="text-xl md:text-2xl font-serif text-[#78716c] mb-4 leading-[1.2] italic">
             {p.subtitle}
           </p>
         )}
-        <p className="text-lg text-[#57534e] mb-6 leading-relaxed max-w-2xl font-sans">
+        <p className="text-lg text-text-secondary mb-6 leading-relaxed max-w-2xl font-sans">
           {p.summary}
         </p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-5">
