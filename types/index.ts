@@ -9,6 +9,10 @@ export interface WorkProject {
   role: string;
   coverImage?: string;
   status: "shipped" | "ongoing" | "discontinued";
+  result?: string;
+  duration?: string;
+  team?: string;
+  subtitle?: string;
 }
 
 export interface SideProject {
@@ -21,6 +25,10 @@ export interface SideProject {
   icon: string;
   url?: string;
   github?: string;
+  coverImage?: string;
+  role?: string;
+  timeToMvp?: string;
+  status?: string;
 }
 
 export interface AcademicProject {
@@ -33,6 +41,10 @@ export interface AcademicProject {
   institution: string;
   context: string;
   pdfUrl?: string;
+  grade?: string;
+  coverImage?: string;
+  role?: string;
+  duration?: string;
 }
 
 export interface HobbyItem {
@@ -44,6 +56,11 @@ export interface HobbyItem {
   order: number;
   category: string;
   image?: string;
+  icon?: string;
+  proof?: string;
+  url?: string;
+  notice?: string;
+  noticeLink?: string;
 }
 
 export interface WritingPiece {

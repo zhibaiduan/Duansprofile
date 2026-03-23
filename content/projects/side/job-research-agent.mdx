@@ -1,0 +1,72 @@
+---
+title: "Personal Job Research Agent"
+year: 2026
+type: "Side project"
+role: "Sole builder"
+status: In Use
+summary: "Built an automated job search and analysis workflow using n8n, recommending high-matching roles, received 413 likes within 48 hours."
+tags: [Workflow Automation, Agentic AI, n8n]
+order: 1
+coverImage: /images/projects/job-research-agent/n8njob_workflow.jpg
+---
+
+<DemoCard
+  title="Github link"
+  description="n8n workflow"
+  link="https://github.com/zhibaiduan/job_hunter"
+/>
+
+## The Problem
+
+As a non-native speaker job hunting in Europe, I had two problems.
+
+Every day I was spending around 2 hours manually checking LinkedIn, Indeed, and Stepstone. Reading each posting, understanding the requirements, and judging whether it was worth applying. Doing that one by one, for dozens of jobs, is exhausting.
+
+The second problem was less obvious: I wanted to understand the European job market. What do companies actually look for? How do requirements differ across roles and companies? That's hard to see when you're reviewing jobs one by one.
+
+## The Solution
+
+I built an automated pipeline using n8n that runs every day.
+
+<ImageGrid label="Process Flowchart" images={["/images/projects/job-research-agent/n8njob_diagram.jpg"]} />
+
+It scrapes job postings across three platforms, deduplicates by URL, then sends each new posting to an AI agent that compares it against my resume and job goals — returning a match score, skill gaps, and a one-line recommendation. Results are stored in Airtable for review and management, and top matches are pushed to Telegram every morning.
+
+<ImageGrid label="n8n Workflow" images={["/images/projects/job-research-agent/n8njob_workflow.jpg"]} />
+
+I intentionally skipped auto-apply for the MVP.
+
+The goal was to understand the market first — what roles exist, what companies are hiring, what skills they actually ask for. Auto-applying before I understood that would have been the wrong move. Reading each posting myself is part of the research.
+
+## Demo
+
+### Airtable — Database & Management
+
+All scraped and analyzed results are stored in Airtable as the single source of truth. 
+Different views serve different needs, from reviewing AI match scores to tracking application progress. 
+Airtable AI is used for on-demand analysis on selected records.
+
+<ImageGrid label="Airtable" images={["/images/projects/job-research-agent/n8njob_airtable_sheet.jpg","/images/projects/job-research-agent/n8njob_airtable_track.jpg","/images/projects/job-research-agent/n8njob_analysis.jpg"]} cols={1} />
+
+
+### Telegram — Daily Notifications
+
+Top matches are pushed to Telegram every morning. This shifts job searching from active browsing to passive receiving, reducing information noise and lowering the friction to act.
+
+<ImageGrid label="Telegram" images={["/images/projects/job-research-agent/n8njob_telegram.PNG"]} cols={2} center={true} />
+
+## Results
+
+Daily job search time dropped from 2 hours to around 30 minutes. The friction dropped even more — instead of opening three tabs every morning, I wake up to a Telegram message and an Airtable view with the jobs worth looking at.
+
+I shared the workflow on Xiaohongshu. Within 48 hours: **413 likes and saves**, **2,543 impressions**. That confirmed the problem isn't just mine.
+
+<ImageGrid label="Xiaohongshu" images={["/images/projects/job-research-agent/n8n_rednote.PNG"]}/>
+
+## What's Next
+
+It's easy to build something for yourself. As a PM, I'm more interested in how to productize it — so other job seekers can use it without having to build it themselves.
+
+## Stack
+
+<StackTags items="n8n · Apify · Agentic AI · Airtable · Telegram Bot API · Docker" />

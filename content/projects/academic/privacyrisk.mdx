@@ -1,0 +1,66 @@
+---
+title: PrivacyRisk — Privacy Incident Analytics Platform
+year: 2026
+institution: HTW Berlin
+role: PM + builder
+duration: 1 month · 2026
+tags: [Data Privacy and Compliance, Data Analysis, Vibe Coding, Product Design, Visualization]
+summary: From zero domain knowledge to a shipped analytics platform. Grade 1.0.
+order: 1
+grade: "1.0 — sehr gut"
+---
+
+## Context
+
+A Freie Universität Berlin PhD researcher was building [PrivacyRisq](https://privacyrisq.f4.htw-berlin.de/), converting real privacy incidents into measurable insights. She had the data and was deep in the core research problem.
+
+What was missing: a product perspective.
+
+My first questions: *Who actually uses this? In what situation do they open it? How do we make this data mean something and not just display it?*
+
+I joined with zero background in privacy compliance, GDPR, or threat modeling.
+
+## What I Did
+
+**Set the direction** — Ramped up on LINDDUN, GDPR, MITRE ATT&CK. Defined goals and delivrables with the researcher and set up our working rhythm.
+
+**Structured the analysis** — Mapped the dimensions the data could be analyzed from. Agreed priorities with the researcher. Key decision: don't just show charts but use a narrative structure so the analysis actually lands.
+
+**Designed the product** — User analysis → MVP scope → product design. Structure, information hierarchy, UI preference and interaction flow.
+
+**Built and shipped** — AI pair coding. Full data pipeline, visualizations, and MVP in 3 days. Delivered during exam period.
+
+## The Product
+
+The full design covers landing page, dashboard, and case library.
+Merve already had the landing page — I focused on the two analytical surfaces.
+
+### Dashboard — macro insights
+
+Built for researchers who need to read the data fast and correctly.
+Narrative structure + deliberate chart selection + intentional color use — each choice made to transmit information efficiently and without introducing bias.
+
+One thing I wanted but didn't ship due to time: inline methodology notes. The idea was that whenever a user questions a number or a framing, the explanation is already there — no context-switching. That's on the backlog.
+
+<ImageGrid label="Dashboard" images={["/images/projects/privacyrisk/privacyrisk_dashboard1.jpg","/images/projects/privacyrisk/privacyrisk_dashboard2.jpg","/images/projects/privacyrisk/privacyrisk_dashboard3.jpg"]} />
+
+### Case Library — granular research
+
+Built for researchers who need to go deep on specific incidents.
+Two entry points: curated cases and the full dataset. Flexible filtering — jurisdiction, LINDDUN category, threat actor, data source — so users can find exactly what they're looking for. The design work here was mostly about information architecture: what to show, in what order, and how much.
+
+<ImageGrid label="Case Library" images={["/images/projects/privacyrisk/privacyrisk_caselibrary1.jpg","/images/projects/privacyrisk/privacyrisk_caselibrary2.jpg","/images/projects/privacyrisk/privacyrisk_caselibrary3.jpg"]} />
+
+## Reflection
+
+Merve was happy with the outcome. We got a 1.0.
+
+Glad my product experience brought clarity to a research context where that was the missing piece. Came out with real knowledge of data compliance and privacy threat modeling. And pushed my AI pair coding practice further — compressing delivery time without losing quality.
+
+> "Xiaoyan enhanced PrivacyRisq with visual concepts, case studies, and a consistently professional product and dashboard. Her ideas were often things that no one else would have thought of, and everything she touches looks like it belongs in the top 1% of professional B2B products."
+>
+> — PhD Researcher, Freie Universität Berlin · [LinkedIn](https://www.linkedin.com)
+
+## Stack
+
+<StackTags items="Antigravity · Python · Dash · Plotly" />

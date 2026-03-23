@@ -5,28 +5,71 @@ import {
   getHobbyItems,
 } from "@/lib/content";
 import Hero from "@/components/home/Hero";
-import StoryFlow from "@/components/home/StoryFlow";
+import Timeline from "@/components/home/Timeline";
 import ProjectsSection from "@/components/home/ProjectsSection";
+import ContactSection from "@/components/home/ContactSection";
+import PhilosophySection from "@/components/home/PhilosophySection";
+import ScrollUI from "@/components/ui/ScrollUI";
 
-const storyBeats = [
+const timelineNodes = [
   {
-    label: "起点",
-    headline: "从设计到代码的第一步",
-    body: "最初学习设计，发现仅靠视觉无法完整表达想法——于是拿起键盘，开始把原型变成真实运行的产品。",
-    annotation: "2019",
+    dateRange: "2013–2017",
+    title: "Materials Engineering",
+    note: "Foundation in science and analytical thinking",
   },
   {
-    label: "转折",
-    headline: "在真实项目里理解复杂度",
-    body: "加入团队后，开始面对真正的工程挑战：性能、协作、可维护性。从独立开发者成长为懂得权衡取舍的人。",
-    annotation: "2021",
+    dateRange: "2017–2021",
+    title: "Build Several Products from Scratch",
+    note: "From 0 to 1, learning by shipping",
   },
   {
-    label: "现在",
-    headline: "构建有温度的数字产品",
-    body: "我关注体验细节，也关注系统全局。喜欢让复杂的事情看起来简单，让简单的交互充满质感。",
+    dateRange: "2021–2022",
+    title: "Gap Year",
+    note: "Reflection, exploration, and reset",
+  },
+  {
+    dateRange: "2022–2024",
+    title: "PM-Kingsoft",
+    note: "Product management at scale",
+  },
+  {
+    dateRange: "2024–2025",
+    title: "Learning German from scratch",
+    note: "New language, new challenges",
+  },
+  {
+    dateRange: "2025–2026",
+    title: "HTW",
+    note: "Current chapter — deepening technical foundation",
+    current: true,
   },
 ];
+
+const heroBio: React.ReactNode[] = [
+  <>
+    I build products that turn complex workflows into{" "}
+    <strong className="font-semibold text-text-primary">systems people actually use</strong>.
+  </>,
+  <>
+    Over <strong className="font-semibold text-text-primary">6 years in China</strong>,
+    I led <strong className="font-semibold text-text-primary">two enterprise tools end-to-end</strong>,
+    drove a product <strong className="font-semibold text-text-primary">from beta to public release</strong> on a platform with{" "}
+    <strong className="font-semibold text-text-primary">millions of users</strong>,
+    and initiated <strong className="font-semibold text-text-primary">a low-code engine</strong> from scratch.
+  </>,
+  <>
+    I&apos;m drawn to problems that sit at the intersection of{" "}
+    <strong className="font-semibold text-text-primary">business complexity and real human use</strong>.
+  </>,
+  <>
+    Now based in <strong className="font-semibold text-text-primary">Berlin</strong>,
+    completing my Master&apos;s in{" "}
+    <strong className="font-semibold text-text-primary">IT Business and Digitalisation at HTW</strong>,
+    and ready to bring this into a European team.
+  </>,
+];
+
+const heroStats: { value: string; label: string }[] = [];
 
 export default async function Home() {
   const [work, side, academic, hobby] = await Promise.all([
@@ -35,20 +78,27 @@ export default async function Home() {
     getAcademicProjects(),
     getHobbyItems(),
   ]);
-
   return (
-    <main className="relative z-10 min-h-screen pt-16">
+    <main className="relative z-10 min-h-screen">
+      <ScrollUI />
       <Hero
-        name="Duan"
-        tagline="Designer-turned-engineer. I build things that are precise, warm, and quietly delightful."
+        firstName="Xiaoyan"
+        lastName="Duan."
+        bio={heroBio}
+        photo="/images/hero/photo.jpg"
+        photoCaption="Van Gogh Museum · Amsterdam"
+        quote="Find things beautiful as much as you can. Most people find too little beautiful."
+        stats={heroStats}
       />
-      <StoryFlow beats={storyBeats} />
-      <ProjectsSection
-        work={work}
-        side={side}
-        academic={academic}
-        hobby={hobby}
-      />
+      {/* <Timeline
+        nodes={timelineNodes}
+        subtitle="From materials lab to product strategy — a non-linear path shaped by curiosity."
+      /> */}
+      <ProjectsSection work={work} side={side} academic={academic} hobby={hobby} />
+      <div className="bg-gradient-to-b from-[#faf8f4] to-[#f5f1ea] relative overflow-hidden">
+        <PhilosophySection />
+        <ContactSection />
+      </div>
     </main>
   );
 }

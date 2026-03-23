@@ -5,8 +5,6 @@ import type {
   HobbyItem,
 } from "@/types";
 import { getRotationFromSlug } from "@/lib/utils";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import SectionLabel from "@/components/ui/SectionLabel";
 import ProjectCard from "@/components/home/ProjectCard";
 
 interface ProjectsSectionProps {
@@ -23,87 +21,80 @@ export default function ProjectsSection({
   hobby,
 }: ProjectsSectionProps) {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-24">
-      <div className="flex flex-col gap-20">
+    <div className="mx-auto max-w-5xl px-6 py-12">
+      <div className="flex flex-col gap-16">
         {work.length > 0 && (
-          <ScrollReveal>
-            <div className="flex flex-col gap-6">
-              <SectionLabel>Work</SectionLabel>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
-                {work.map((project, i) => (
-                  <ScrollReveal key={project.slug} delay={0.05 * i}>
-                    <ProjectCard
-                      project={project}
-                      variant="work"
-                      rotationDeg={getRotationFromSlug(project.slug, "work")}
-                    />
-                  </ScrollReveal>
-                ))}
-              </div>
+          <section id="work-cases">
+            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+              Working Cases
+            </h2>
+            <div className="grid grid-cols-1 gap-4">
+              {work.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  variant="work"
+                  rotationDeg={getRotationFromSlug(project.slug, "work")}
+                />
+              ))}
             </div>
-          </ScrollReveal>
+          </section>
         )}
 
         {side.length > 0 && (
-          <ScrollReveal>
-            <div className="flex flex-col gap-6">
-              <SectionLabel>Side Projects</SectionLabel>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
-                {side.map((project, i) => (
-                  <ScrollReveal key={project.slug} delay={0.05 * i}>
-                    <ProjectCard
-                      project={project}
-                      variant="side"
-                      rotationDeg={getRotationFromSlug(project.slug, "side")}
-                    />
-                  </ScrollReveal>
-                ))}
-              </div>
+          <section id="side">
+            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+              Side Projects
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {side.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  variant="side"
+                  rotationDeg={getRotationFromSlug(project.slug, "side")}
+                />
+              ))}
             </div>
-          </ScrollReveal>
+          </section>
         )}
 
         {academic.length > 0 && (
-          <ScrollReveal>
-            <div className="flex flex-col gap-6">
-              <SectionLabel>Academic</SectionLabel>
-              <div className="flex flex-col gap-4">
-                {academic.map((project, i) => (
-                  <ScrollReveal key={project.slug} delay={0.05 * i}>
-                    <ProjectCard
-                      project={project}
-                      variant="academic"
-                      rotationDeg={getRotationFromSlug(
-                        project.slug,
-                        "academic"
-                      )}
-                    />
-                  </ScrollReveal>
-                ))}
-              </div>
+          <section id="academic">
+            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+              Academic Projects
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {academic.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  variant="academic"
+                  rotationDeg={getRotationFromSlug(project.slug, "academic")}
+                />
+              ))}
             </div>
-          </ScrollReveal>
+          </section>
         )}
 
         {hobby.length > 0 && (
-          <ScrollReveal>
-            <div className="flex flex-col gap-6">
-              <SectionLabel>Hobby</SectionLabel>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
-                {hobby.map((project, i) => (
-                  <ScrollReveal key={project.slug} delay={0.05 * i}>
-                    <ProjectCard
-                      project={project}
-                      variant="hobby"
-                      rotationDeg={getRotationFromSlug(project.slug, "hobby")}
-                    />
-                  </ScrollReveal>
-                ))}
-              </div>
+          <section id="think">
+            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+              Outside of Work
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {hobby.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  variant="hobby"
+                  rotationDeg={getRotationFromSlug(project.slug, "hobby")}
+                />
+              ))}
             </div>
-          </ScrollReveal>
+          </section>
         )}
       </div>
-    </section>
+    </div>
   );
 }

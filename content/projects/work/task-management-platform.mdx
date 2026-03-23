@@ -1,0 +1,494 @@
+---
+title: "TaskOS: Turning a Management Methodology into Company-Wide Infrastructure"
+year: 2022
+company: NetDragon · HK-listed · 3,000+ employees
+role: Product Manager
+tags: [Workflow Automation, Enterprise, Internal Platform, Change Management, Full Product Lifecycle]
+summary: Turned an offline methodology into a company-wide operating system. Encoded what tasks should exist, when to create them, and how to do them right.
+status: shipped
+order: 1
+result: "3,000+ employees · Replaced legacy ERP · Mgmt Award"
+coverImage: /images/projects/taskos/cover.png
+duration: ~1 year · Full lifecycle
+team: 4
+---
+
+<style>{`
+  .tcp-wrap *, .tcp-wrap *::before, .tcp-wrap *::after { box-sizing: border-box; }
+
+  .tcp-wrap {
+    --ink: #1a1a1a;
+    --ink-2: #6b6b6b;
+    --ink-3: #999;
+    --rule: rgba(0,0,0,0.08);
+    --surface: #f7f6f3;
+    --surface-2: #ffffff;
+    font-family: inherit;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .tcp-wrap .section { margin-bottom: 4rem; }
+
+  .tcp-wrap .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .tcp-wrap .section h2 {
+    font-family: var(--font-serif, 'DM Serif Display', Georgia, serif);
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1.28;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .tcp-wrap .prose {
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+
+  .tcp-wrap .prose + .tcp-wrap .prose { margin-top: 0.75rem; }
+
+  .tcp-wrap .prose strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .tcp-wrap .note {
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.7;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  .tcp-wrap .two-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .tcp-wrap .grid-cell {
+    background: var(--surface);
+    padding: 1.375rem;
+  }
+
+  .tcp-wrap .cell-icon {
+    font-size: 20px;
+    margin-bottom: 0.625rem;
+    display: block;
+  }
+
+  .tcp-wrap .grid-cell h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.375rem;
+  }
+
+  .tcp-wrap .grid-cell p {
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  .tcp-wrap .placeholder {
+    border: 1.5px dashed var(--rule);
+    border-radius: 10px;
+    padding: 2.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    font-size: 13px;
+  }
+
+  .tcp-wrap .journey {
+    margin: 1.75rem 0;
+    position: relative;
+  }
+
+  .tcp-wrap .journey::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 28px;
+    bottom: 28px;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .tcp-wrap .journey-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.125rem 0;
+  }
+
+  .tcp-wrap .step-dot {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tcp-wrap .step-body { padding-top: 7px; }
+
+  .tcp-wrap .step-body h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .tcp-wrap .step-body p {
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+
+  .tcp-wrap .step-body p + p { margin-top: 0.5rem; }
+
+  .tcp-wrap .step-body p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .tcp-wrap .stat-row {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .tcp-wrap .stat-cell {
+    background: var(--surface);
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .tcp-wrap .stat-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .tcp-wrap .stat-num {
+    font-family: var(--font-serif, 'DM Serif Display', Georgia, serif);
+    font-size: 1.5rem;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .tcp-wrap .stat-label {
+    font-size: 11px;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  .tcp-wrap .screen-wrap {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .tcp-wrap .screen-img {
+    width: 100%;
+    display: block;
+  }
+
+  .tcp-wrap .screen-cap {
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--ink-3);
+    background: var(--surface);
+    border-top: 1px solid var(--rule);
+    line-height: 1.6;
+  }
+
+  .tcp-wrap .screen-cap strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .tcp-wrap .screen-img-fixed {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .tcp-wrap .pull-quote {
+    font-family: var(--font-serif, 'DM Serif Display', Georgia, serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--ink);
+    text-align: center;
+    margin: 2.5rem 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .tcp-wrap .two-grid,
+    .tcp-wrap .stat-row { grid-template-columns: 1fr; }
+  }
+`}</style>
+
+<div className="tcp-wrap">
+
+{/* PROBLEM */}
+<div className="section">
+  <div className="section-label">The Problem</div>
+  <h2>Work was happening everywhere.<br />Nobody could see it.</h2>
+
+  <p className="prose">NetDragon ran hundreds of projects in parallel across 3,000 people. Tasks lived in ERP tickets, chat threads, and verbal handoffs. Each team had its own system, or no system at all. When someone left, their work history left with them.</p>
+
+  <div className="two-grid">
+    <div className="grid-cell">
+      <span className="cell-icon">🕳️</span>
+      <h3>Work was invisible</h3>
+      <p>Managers could not see where their team's time was going. Project leads spent hours chasing status updates.</p>
+    </div>
+    <div className="grid-cell">
+      <span className="cell-icon">📋</span>
+      <h3>No methodology carrier</h3>
+      <p>The company had validated a task-centric management approach offline. There was no digital tool to carry it.</p>
+    </div>
+  </div>
+
+  <p className="prose"><strong>The real challenge was not building a task tool. It was digitizing a methodology.</strong> Unlike Jira or Asana where you decide what tasks to create, this platform encodes what tasks should exist. The system knows what comes next.</p>
+</div>
+
+{/* HOW IT WORKS */}
+<div className="section">
+  <div className="section-label">How It Works</div>
+  <h2>Three layers. One system.</h2>
+
+  <p className="prose" style={{marginBottom:'1.5rem'}}>TaskOS is built around three layers. Each layer has a defined user group and a clear job to do.</p>
+
+  <div className="screen-wrap">
+    <img className="screen-img" src="/images/projects/taskos/taskos_architecture.png" alt="TaskOS — System Architecture" />
+  </div>
+</div>
+
+{/* WHO IT'S FOR */}
+<div className="section">
+  <div className="section-label">Who It's For</div>
+  <h2>Before and after, for every role.</h2>
+
+  <div style={{display:'flex',flexDirection:'column',gap:'1.5rem',marginTop:'1.5rem'}}>
+
+    <div>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',margin:'0 0 0.75rem'}}>👤 Employee</p>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 32px 1fr',alignItems:'center'}}>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink-3)',margin:'0 0 0.375rem'}}>Before</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>Tasks scattered across ERP, chat, and verbal requests. End-of-day log written from memory every night.</p>
+        </div>
+        <p style={{textAlign:'center',color:'var(--ink-3)',fontSize:'16px',margin:0}}>→</p>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink)',margin:'0 0 0.375rem'}}>After</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>One workspace for all tasks and approvals. Drag tasks into the timetable. One click generates the work log at day's end.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style={{borderTop:'1px solid var(--rule)',paddingTop:'1.5rem'}}>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',margin:'0 0 0.75rem'}}>📋 Project Lead</p>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 32px 1fr',alignItems:'center'}}>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink-3)',margin:'0 0 0.375rem'}}>Before</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>Needs to research what the org expects at each stage. Relies on personal experience. Results may not match organizational expectations.</p>
+        </div>
+        <p style={{textAlign:'center',color:'var(--ink-3)',fontSize:'16px',margin:0}}>→</p>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink)',margin:'0 0 0.375rem'}}>After</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>Methodology is embedded. Required tasks for each phase are dispatched automatically, with goals, standards, and deadlines already defined.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style={{borderTop:'1px solid var(--rule)',paddingTop:'1.5rem'}}>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',margin:'0 0 0.75rem'}}>🗂️ Manager</p>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 32px 1fr',alignItems:'center'}}>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink-3)',margin:'0 0 0.375rem'}}>Before</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>Relies on perception and secondhand feedback. Hard to assess actual workload or resource allocation.</p>
+        </div>
+        <p style={{textAlign:'center',color:'var(--ink-3)',fontSize:'16px',margin:0}}>→</p>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink)',margin:'0 0 0.375rem'}}>After</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>Reviews performance based on dashboard data. Conversations are grounded in facts and records, not impressions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style={{borderTop:'1px solid var(--rule)',paddingTop:'1.5rem'}}>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',margin:'0 0 0.75rem'}}>🏢 Leadership</p>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 32px 1fr',alignItems:'center'}}>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink-3)',margin:'0 0 0.375rem'}}>Before</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>Departments and projects are a black box. Visibility depends entirely on individual capabilities of leads.</p>
+        </div>
+        <p style={{textAlign:'center',color:'var(--ink-3)',fontSize:'16px',margin:0}}>→</p>
+        <div>
+          <p style={{fontSize:'10px',fontWeight:600,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--ink)',margin:'0 0 0.375rem'}}>After</p>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.7,margin:0}}>Standards unified, execution automated, everything transparent. Any project or department accessible at any time.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{/* INTERFACE */}
+<div className="section">
+  <div className="section-label">Interface</div>
+  <h2>Product screens.</h2>
+
+  <p className="prose" style={{marginBottom:'0.5rem'}}>No actual product screenshots were collected. These are the closest available design mockups to the final product and can be used as reference.</p>
+
+  <ImageGrid cols={1} items={[
+    { src: "/images/projects/taskos/personaltaskpool.png", caption: "Personal task center — All tasks, approvals, and documents in one unified interface. Schedule tasks into the daily timetable. One-click log generation at day's end." }
+  ]} />
+
+  <ImageGrid cols={2} items={[
+    { src: "/images/projects/taskos/projectpool.png", caption: "Project workspace — Quarterly plan with linked tasks, progress tracking, risk status, and assignees." },
+    { src: "/images/projects/taskos/taskdetails.png", caption: "Task detail — Full context: assignee, status, hours logged, linked files, activity history. Sub-tasks trigger automatically." }
+  ]} />
+</div>
+
+{/* MY ROLE */}
+<div className="section">
+  <div className="section-label">My Role</div>
+  <h2>Translated a methodology into a product.<br />Then made sure 3,000 people used it.</h2>
+
+  <div style={{display:'flex',flexDirection:'column',gap:'1.25rem',marginTop:'1.25rem'}}>
+    <div>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',marginBottom:'4px'}}>01 · Ownership</p>
+      <p className="prose">Translated organizational needs into a digital product, taking ownership from initial delivery to adoption.</p>
+    </div>
+    <div>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',marginBottom:'4px'}}>02 · Planning & Decision-Making</p>
+      <p className="prose">Built on an initial architecture defined by a senior product director for V1. From that point onward, independently owned all roadmap planning, feature prioritization, business research, and stakeholder alignment.</p>
+    </div>
+    <div>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',marginBottom:'4px'}}>03 · Product Development</p>
+      <p className="prose">Defined the core product design and user experience, set milestones, and drove execution. Initiated and led a UX upgrade at the right stage to improve usability and entry points.</p>
+    </div>
+    <div>
+      <p style={{fontSize:'13px',fontWeight:600,color:'var(--ink)',marginBottom:'4px'}}>04 · Adoption</p>
+      <p className="prose">Drove pilot and rollout across teams, aligning with managers, leading training sessions, and ensuring the platform was effectively configured and used.</p>
+    </div>
+  </div>
+</div>
+
+{/* IMPACT */}
+<div className="section">
+  <div className="section-label">Impact</div>
+  <h2>What actually changed.</h2>
+
+  <div className="two-grid" style={{marginTop:'1.5rem'}}>
+    <div className="grid-cell">
+      <div style={{fontSize:'12px',fontWeight:600,color:'var(--ink)',marginBottom:'0.75rem'}}>For Individuals</div>
+      <div style={{display:'flex',flexDirection:'column',gap:'0.625rem'}}>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>1</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>One inbox. Nothing falls through the cracks.</p>
+        </div>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>2</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>Daily log: 10 minutes → 1 minute.</p>
+        </div>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>3</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>Task records replace verbal agreements. Fewer surprises.</p>
+        </div>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>4</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>Work is visible. No more chasing updates.</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="grid-cell">
+      <div style={{fontSize:'12px',fontWeight:600,color:'var(--ink)',marginBottom:'0.75rem'}}>For the Organization</div>
+      <div style={{display:'flex',flexDirection:'column',gap:'0.625rem'}}>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>1</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>Methodology runs automatically. No one has to remember the rules.</p>
+        </div>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>2</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>Built-in standards ensure work meets organizational requirements.</p>
+        </div>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>3</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>Everything is transparent. Auditable at any time.</p>
+        </div>
+        <div style={{display:'flex',gap:'0.625rem'}}>
+          <span style={{fontSize:'12px',fontWeight:600,color:'var(--ink-3)',flexShrink:0}}>4</span>
+          <p style={{fontSize:'13px',color:'var(--ink-2)',lineHeight:1.6,margin:0}}>Every output is recorded. Knowledge stays in the organization.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p className="pull-quote">"The methodology used to live in a document nobody read. Now it runs automatically inside the product."</p>
+
+  <div className="stat-row" style={{gridTemplateColumns:'repeat(4, 1fr)',marginTop:0}}>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Adoption</div>
+      <div className="stat-num">3,000+</div>
+      <div className="stat-label">Full org-wide rollout, replacing the legacy ERP system.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Replaced</div>
+      <div className="stat-num">Legacy ERP</div>
+      <div className="stat-label">TaskOS became the primary task management system across the organization.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Recognition</div>
+      <div className="stat-num">Mgmt Award</div>
+      <div className="stat-label">Company Management Award for driving organizational change through product.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">What came next</div>
+      <div className="stat-num">Next project</div>
+      <div className="stat-label">Invited to lead the next major company initiative after this project closed.</div>
+    </div>
+  </div>
+</div>
+
+</div>

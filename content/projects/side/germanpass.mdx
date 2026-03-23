@@ -1,0 +1,129 @@
+---
+title: "GermanPass — TELC C1 Oral Exam Prep App"
+summary: "A gamified flashcard + podcast app for Chinese students preparing for the TELC C1 oral exam. Built in 6 days as a real test of Gemini 3. Not a toy demo, but a product shipped to 100 seed users."
+role: "Sole builder"
+year: 2025
+timeToMvp: "Around 6 days"
+status: "Paused · 100 seed users"
+tags: ["Gemini 3", "Gamification App", "Vercel", "100 seed users"]
+coverImage: /images/projects/germanpass/germanpass_cover.jpg
+order: 2
+---
+
+<DemoCard
+  title="GermanPass"
+  description="Welcome to try it. Best experienced on mobile or iPad.  Username: Duan · Password: Duan2025"
+  link="https://german-pass.vercel.app/"
+/>
+
+<VideoWithNotes
+  src="/images/projects/germanpass/germanpass.webm"
+  notes={[
+    "AI-generated animated visuals were used for promotion. As the MVP targets Chinese users, content is in Chinese.",
+    "I built a German exam prep app for Telc C1 and TestDaF.",
+    "High-frequency vocab blocks, ready to use from day one. Focus on the 20% of content that covers 80% of Telc/TestDaF exam scenarios.",
+    "Listen while you drill, perfect for commutes and bedtime. Smart loop mode — read along anytime, build listening and pronunciation at the same time.",
+    "A snarky coach who never lets you slack. No empty encouragement. Pure German-style sarcasm to push you all the way to exam day."
+  ]}
+/>
+
+## What it is
+
+In November 2025, Google released Gemini 3 — capable of generating production-level frontend interfaces. I wanted to test how far vibe coding could actually go, so I built something real instead of a toy demo.
+
+The domain was clear to me: after a year of learning Chinese, I observed exactly where students struggle. Most memorize individual words and focus heavily on reading, while neglecting listening, and their learning is often fragmented. Cognitive research shows that learning in meaningful chunks — grouping words and phrases into patterns — is far more effective. GermanPass was a small, intentional experiment: designed to validate both the tool and the idea, and to get it into the hands of real users quickly. The interface is in Chinese by design, targeting the users’ native language.
+
+---
+
+## Product screens
+
+<ImageGrid cols={4} items={[
+  { src: "/images/projects/germanpass/germanpass_login.jpg",    caption: "Login" },
+  { src: "/images/projects/germanpass/germanpass_homepage.jpg", caption: "Home" },
+  { src: "/images/projects/germanpass/germanpass_list.jpg",     caption: "Word List" },
+  { src: "/images/projects/germanpass/germanpass_flashcard.jpg",caption: "Flashcard" },
+  { src: "/images/projects/germanpass/germanpass_pause.jpg",    caption: "Pause" },
+  { src: "/images/projects/germanpass/germanpass_summary.jpg",  caption: "Summary" },
+  { src: "/images/projects/germanpass/germanpass_podcast.jpg",  caption: "Podcast" },
+  { src: "/images/projects/germanpass/germanpass_profile.jpg",  caption: "Profile" },
+]} />
+
+---
+
+## The Problem
+
+Most learners preparing for TELC C1 face the same three obstacles:
+
+**1. No momentum, no finish line**
+
+Self-study sessions have no structure. There is no clear signal for "done today." Without a stopping point, most people drift — or quit.
+
+**2. They read. They don’t speak.**
+
+Vocabulary study is mostly visual. But TELC C1 tests listening and speaking. Learners build recognition, not recall. They can read a word — but freeze when they need to produce it.
+
+**3. Exam prep is lonely and exhausting**
+
+C1 has a large vocabulary scope and a long preparation timeline. Without any emotional support or feedback loop, grinding through word lists feels like punishment. Motivation collapses before the exam arrives.
+
+---
+
+## Design Highlights
+
+**🃏 Gamified flashcard loop**
+
+Round-based review with three self-rating levels. Every session has a clear endpoint — so learners finish instead of drift.
+
+**🎙 Podcast mode**
+
+Chinese prompt → pause → German answer, read aloud. Train recall and pronunciation while commuting.
+
+**🔊 Audio on every card**
+
+Pronunciation plays automatically. Hearing a word first is the default, not an option.
+
+**🤖 Animated coach**
+
+A character reacts and encourages throughout. Makes a long, hard prep feel a little less like grinding alone. You can also interacte with the coach.
+
+<VideoPlayer src="/images/projects/germanpass/coach.mp4" width="60%" />
+
+---
+
+## Results
+
+**6 days from idea to live, posted to social media on day 6.**
+
+That 6 days was messier than it sounds. Half the time went to mid-build product ideas I couldn't ignore, browser compatibility issues, pronunciation bugs, and a few moments where an AI edit quietly broke something that was already working. Fast shipping, but not sloppy.
+
+**100 seed users. 912 views, 165 interactions.**
+
+Two pieces of feedback kept coming up: cross-device bugs, and "can you add more content?" The interest was real. The content gap was also real.
+
+
+
+
+---
+
+## Status: Paused
+
+Paused due to time. Maintaining the product, producing quality content, and fixing cross-device bugs across browsers — all three at once was too much to sustain alone.
+
+---
+
+## What I actually learned from it
+
+**🚀 The wow** — Frontend generation is genuinely fast. Gemini 3 produced production-level UI in hours. That surprised me — and it's real, not hype.
+
+**🔧 The dirty work** — Cross-device compatibility consumed most of the time. TTS sounded perfect on Safari, broke on Chrome. Flashcard layout flipped between browsers. Generation is fast — adaptation is not.
+
+**🪤 The trap** — One night I felt 100 meters from the finish line. The more I changed, the further away it got. Working with AI requires knowing when to stop. Scope control is a real skill.
+
+**🌉 The gap** — Demos and stable products are still far apart. Gemini 3 generates excitement fast. The distance between a working demo and a reliable product is still large.
+
+---
+
+
+## Stack
+
+`Google Gemini 3` `Google AI Studio` `Vercel` `Web Speech API` `HTML / CSS / JS` `PWA`

@@ -1,0 +1,45 @@
+---
+title: Serverless Content Moderation on AWS
+year: 2026
+institution: HTW Berlin
+role: Solo builder
+duration: 3 days · 2026
+tags: [AWS, Serverless, AI recognition, OCR, CI/CD]
+summary: Event-driven serverless architecture. Lambda, SNS, DynamoDB. Terraform IaC. Designed for loose coupling and auditability.
+order: 2
+grade: "1.3 — sehr gut"
+---
+
+## What It Is
+
+A final project for the Cloud Computing course at HTW Berlin. I built an automated content moderation system on AWS that screens user-uploaded images — through image recognition, OCR and text comprehension — to determine if a picture is appropriate and notifies an admin when action is needed.
+
+## Business Flow
+
+A user uploads an image via a presigned S3 URL. S3 triggers a Lambda orchestrator, which fans out via SNS to three parallel analysis functions: Rekognition for visual content, Textract for OCR, and Comprehend for text sentiment. Each function writes its verdict to DynamoDB. A final aggregator Lambda reads the results, computes an overall moderation decision, and sends an SNS notification if human review is needed.
+
+<ImageGrid label="Requirements" images={["/images/projects/serverless/cloud_requirements.jpg"]} />
+
+## Architecture
+
+The system is fully serverless — no EC2, no containers. Every component is event-driven and stateless. Terraform provisions the entire stack from scratch: Lambda functions, IAM roles, SNS topics, S3 bucket policies, DynamoDB tables, API Gateway, WAF, and CodePipeline. A single `git push` deploys everything.
+
+<ImageGrid label="Architecture" images={["/images/projects/serverless/cloud_architecture.jpg"]} />
+
+## Design Considerations
+
+**Loose Coupling** — Each Lambda function does one thing. They communicate through events, not direct calls. The SNS fan-out pattern means adding a new subscriber requires zero changes to existing functions.
+
+**Security** — Four layers: tiered IAM roles (least-privilege per function), presigned URLs (image data never passes through Lambda), WAF Shield (rate-limiting at the API Gateway level), and a private S3 bucket policy.
+
+**Cost Efficiency** — WAF rate-limiting prevents abuse of expensive AI services before they are invoked. Presigned URLs offload binary traffic from Lambda entirely, keeping compute costs low.
+
+**Operational Excellence** — Terraform is the single source of truth for all infrastructure. Every change is tracked in Git. CI/CD via AWS CodePipeline means a `git push` is enough to deploy — no manual steps.
+
+## Summary
+
+This project turned cloud architecture from theory into practice. I came out with a solid grip on AWS service composition, Terraform state management, and what event-driven design actually means when you're wiring it together yourself.
+
+## Stack
+
+<StackTags items="AWS Lambda · S3 · SNS · DynamoDB · Rekognition · Textract · Comprehend · API Gateway · WAF · Terraform · CodePipeline" />

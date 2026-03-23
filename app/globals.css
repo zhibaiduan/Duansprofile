@@ -20,6 +20,10 @@
   --shadow-card: 0 2px 8px rgba(28, 25, 23, 0.08), 0 0 1px #E8E0D5;
   --shadow-card-hover: 0 8px 24px rgba(28, 25, 23, 0.16), 0 0 1px #E8E0D5;
 
+  /* ── Grade colors ─────────────────────────────────────────── */
+  --color-grade-bg: #edf5e4;
+  --color-grade-ink: #3a6d15;
+
   /* ── Z-index ──────────────────────────────────────────────── */
   --z-bg: 0;
   --z-content: 10;
@@ -31,6 +35,11 @@
 /* ── Base ─────────────────────────────────────────────────── */
 html {
   background-color: var(--color-bg);
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
 }
 
 body {

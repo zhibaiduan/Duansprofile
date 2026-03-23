@@ -1,0 +1,534 @@
+---
+title: From Meeting Room to Org Memory:Rebuilding a meeting annotation tool into a knowledge platform
+year: 2021
+company: NetDragon · HK-listed · 3,000+ employees
+role: Product Manager
+tags: [Knowledge Management, Enterprise Internal Tool, Full Product Lifecycle]
+result: "20 → 300+ users · Named knowledge platform prototype by CEO"
+summary: Rebuilt a broken tool into organizational memory. Decisions stopped vanishing — searchable, actionable, traceable.
+status: shipped
+order: 2
+duration: 6–8 months
+team: 3.5
+coverImage: /images/projects/meetingtool/cover.png
+---
+
+<style>{`
+  .mth-wrap *, .mth-wrap *::before, .mth-wrap *::after { box-sizing: border-box; }
+
+  .mth-wrap {
+    --ink: #1a1a1a;
+    --ink-2: #6b6b6b;
+    --ink-3: #999;
+    --rule: rgba(0,0,0,0.08);
+    --surface: #f7f6f3;
+    --surface-2: #ffffff;
+    font-family: inherit;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .mth-wrap .hero {
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3.5rem;
+  }
+
+  .mth-wrap .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1.25rem;
+  }
+
+  .mth-wrap .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--ink);
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+  }
+
+  .mth-wrap .hero h1 em {
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  .mth-wrap .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+
+  .mth-wrap .section {
+    margin-bottom: 4rem;
+  }
+
+  .mth-wrap .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .mth-wrap .section h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1.28;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .mth-wrap .prose {
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+
+  .mth-wrap .prose strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .mth-wrap .step-body p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .mth-wrap .pull {
+    border-left: 2.5px solid var(--ink);
+    padding: 0.875rem 0 0.875rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .mth-wrap .pull p {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    max-width: 520px;
+  }
+
+  .mth-wrap .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .mth-wrap .problem-cell {
+    background: var(--surface);
+    padding: 1.375rem;
+  }
+
+  .mth-wrap .problem-cell.dark {
+    background: var(--ink);
+  }
+
+  .mth-wrap .p-icon {
+    font-size: 20px;
+    margin-bottom: 0.625rem;
+    display: block;
+  }
+
+  .mth-wrap .problem-cell h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.375rem;
+    line-height: 1.4;
+  }
+
+  .mth-wrap .problem-cell.dark h3 {
+    color: rgba(255,255,255,0.95);
+  }
+
+  .mth-wrap .problem-cell p {
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.55;
+  }
+
+  .mth-wrap .problem-cell.dark p {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .mth-wrap .journey {
+    margin: 1.75rem 0;
+    position: relative;
+  }
+
+  .mth-wrap .journey::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 28px;
+    bottom: 28px;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .mth-wrap .journey-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.125rem 0;
+  }
+
+  .mth-wrap .step-dot {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mth-wrap .step-body {
+    padding-top: 7px;
+  }
+
+  .mth-wrap .step-body h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .mth-wrap .step-body p {
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+
+  .mth-wrap .step-body p + p {
+    margin-top: 0.5rem;
+  }
+
+  .mth-wrap .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .mth-wrap .stat-cell {
+    background: var(--surface);
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .mth-wrap .stat-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .mth-wrap .stat-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .mth-wrap .stat-label {
+    font-size: 11px;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  .mth-wrap .contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .mth-wrap .contrib-card {
+    background: var(--surface);
+    padding: 1.375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .mth-wrap .contrib-letter {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background: var(--ink);
+    color: var(--surface);
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mth-wrap .contrib-phase {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .mth-wrap .contrib-card h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  .mth-wrap .contrib-card p {
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.65;
+  }
+
+  .mth-wrap .contrib-result {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+    font-size: 11px;
+    color: var(--ink-3);
+    line-height: 1.55;
+  }
+
+  .mth-wrap .contrib-result strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .mth-wrap .placeholder {
+    border: 1.5px dashed var(--rule);
+    border-radius: 10px;
+    padding: 2.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    font-size: 13px;
+  }
+
+  .mth-wrap .outcome-box {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .mth-wrap .outcome-box p {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+
+  .mth-wrap .outcome-box p + p {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .mth-wrap .outcome-box p:last-child {
+    font-style: italic;
+    color: var(--ink-3);
+  }
+
+  .mth-wrap .screenshot-figure {
+    margin: 1.5rem 0;
+  }
+
+  .mth-wrap .screenshot-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid var(--rule);
+    display: block;
+  }
+
+  .mth-wrap .screenshot-caption {
+    margin-top: 0.75rem;
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 600px) {
+    .mth-wrap .problem-grid,
+    .mth-wrap .contrib-grid { grid-template-columns: 1fr; }
+    .mth-wrap .stat-row { grid-template-columns: 1fr; }
+  }
+`}</style>
+
+<div className="mth-wrap">
+
+{/* PROBLEM */}
+<div className="section">
+  <div className="section-label">The Problem</div>
+  <h2>Strategic decisions were made in meetings.<br />Most of it got lost before execution.</h2>
+
+  <p className="prose">NetDragon is a 3,000-person HK-listed EdTech and gaming company. The CEO held daily meetings with senior leadership and project leads. These were <strong>not routine syncs</strong>. They were <strong>high-level strategic sessions</strong> where company direction, key decisions, and project initiations happened.</p>
+
+  <p className="prose">Two problems came up repeatedly.</p>
+
+  <div className="problem-grid">
+    <div className="problem-cell">
+      <span className="p-icon">🧠</span>
+      <h3>No place to revisit thinking</h3>
+      <p>The CEO generated ideas and direction in these sessions. Once the meeting ended, there was no way to go back, reflect, or build on what was said.</p>
+    </div>
+    <div className="problem-cell">
+      <span className="p-icon">⚠️</span>
+      <h3>Decisions drifted during execution</h3>
+      <p>By the time decisions reached the people doing the work, the original reasoning was gone. They were acting on summaries, not the real intent.</p>
+    </div>
+  </div>
+
+  <p className="prose">The CEO's fix: require key participants to <strong>annotate meetings after the fact</strong>. Not just read a summary. Actually re-engage with the content and write their own understanding. The annotation itself was the mechanism to force deeper processing.</p>
+</div>
+
+{/* SITUATION I INHERITED */}
+<div className="section">
+  <div className="section-label">What I Inherited</div>
+  <h2>A tool that existed.<br />Almost nobody was using it.</h2>
+
+  <p className="prose">A meeting annotation tool was already in place. It supported text annotation, handwriting input, and approval workflows. Very complete. Almost completely avoided.</p>
+
+  <p className="prose">The core problem was <strong>speed</strong>. Opening a meeting was slow. Writing an annotation was slow. Teams who had to use it complained. Teams who didn't, stopped trying.</p>
+
+  <p className="prose">The previous owner had left. I assessed the technical debt with the dev team. Our conclusion: <strong>rebuilding from scratch was faster and cleaner than fixing what existed</strong>. So that is what we did.</p>
+
+  <p className="prose">I was a junior product designer at the time. This was my first role as both product owner and project lead, with a team of 3.5, reporting to a senior product director and the CEO.</p>
+</div>
+
+{/* WHAT I BUILT */}
+<div className="section">
+  <div className="section-label">What I Built</div>
+  <h2>Three stages of product evolution.</h2>
+
+  <div className="journey">
+
+    <div className="journey-step">
+      <div className="step-dot">1</div>
+      <div className="step-body">
+        <h4>⚡ From broken tool to usable core</h4>
+        <p>I started with business research. Talked to the teams who were supposed to use the tool. The problem was clear: too slow, too complex, too many features nobody needed.</p>
+        <p>The MVP cut everything non-essential. <strong>Two things only: meeting load speed and annotation efficiency.</strong> Nothing else shipped until those felt right.</p>
+      </div>
+    </div>
+
+    <div className="journey-step">
+      <div className="step-dot">2</div>
+      <div className="step-body">
+        <h4>🔔 From annotation tool to collaboration tool</h4>
+        <p>As more people started using it, I noticed a pattern. People were sharing meeting transcripts in chat to give context to colleagues. The content had value. The way it moved around was just very manual.</p>
+        <p>That observation became a feature set: @ mentions, task dispatch, annotation reactions, and data sync. <strong>Collaboration was not planned from the start. It was discovered.</strong></p>
+      </div>
+    </div>
+
+    <div className="journey-step">
+      <div className="step-dot">3</div>
+      <div className="step-body">
+        <h4>🗂️ From collaboration tool to org knowledge tool</h4>
+        <p>Annotations were piling up. I noticed something in myself: I enjoyed browsing senior leaders' annotations. It helped me understand project direction and learn how decisions were being made.</p>
+        <p><strong>That personal habit became a product decision.</strong> I built a page that surfaced all annotations as topic-tagged cards with links to the original transcript. Users then asked for subscriptions so updates could come to them instead of them going looking.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{/* ARCHITECTURE DIAGRAM */}
+<div className="section">
+  <div className="section-label">System Architecture</div>
+  <h2>Architecture</h2>
+  <div className="screenshot-figure">
+    <img src="/images/projects/meetingtool/meetingtool_diagram.jpg" alt="Meeting Tool — System Architecture" />
+  </div>
+</div>
+
+{/* PRODUCT SCREENS */}
+<div className="section">
+  <div className="section-label">Product Screens</div>
+  <h2>Interface</h2>
+  <p className="prose" style={{marginBottom:'1.5rem'}}>The screens below are demo mockups generated with Google Stitch and Figma — not screenshots of the actual product. They are intended to illustrate the approximate layout of core pages and cannot reproduce every detail.</p>
+  <div className="screenshot-figure">
+    <img src="/images/projects/meetingtool/Homepage.png" alt="Meeting Annotation Hub — Homepage" />
+    <p className="screenshot-caption">Homepage — Supports meeting folder and file management, inline meeting review and annotation.</p>
+  </div>
+  <div className="screenshot-figure">
+    <img src="/images/projects/meetingtool/Annotation.png" alt="Annotation Center" />
+    <p className="screenshot-caption">Annotation Center — Browse all annotations by semantic tag with original transcript excerpts; click to jump to source.</p>
+  </div>
+</div>
+
+{/* MY CONTRIBUTION & OUTCOME */}
+<div className="section">
+  <div className="section-label">My Contribution & Outcome</div>
+  <h2>My contribution & outcome.</h2>
+
+  <div className="stat-row" style={{gridTemplateColumns:'repeat(2, 1fr)'}}>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Product</div>
+      <div className="stat-num">Full Product Lifecycle</div>
+      <div className="stat-label">Built from scratch to stable release. Full product lifecycle, end to end.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Users</div>
+      <div className="stat-num">20→300+</div>
+      <div className="stat-label">From a small group of executives to a collaboration tool serving the full product and engineering org.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Recognition</div>
+      <div className="stat-num">Knowledge Platform</div>
+      <div className="stat-label">The CEO and senior leadership referenced this product as the prototype in their knowledge platform discussions.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">What came next</div>
+      <div className="stat-num">Invited to lead</div>
+      <div className="stat-label">After this project, I was invited to lead the Task Management Platform — a company-wide initiative serving 3,000+ employees.</div>
+    </div>
+  </div>
+
+  <p className="prose" style={{marginTop:'1.5rem'}}>People started annotating on their own. Product managers and engineers checked meeting records to understand their projects — and followed other discussions to spot opportunities. Executions could trace tasks back to the original conversation that created them.</p>
+  <p className="prose" style={{marginTop:'0.75rem'}}><strong>Meetings stopped being something that happened in a room and disappeared. They grew. They traveled. What was said by a few people became accessible to everyone who needed it.</strong></p>
+  <p className="prose" style={{marginTop:'0.75rem'}}>That this was possible at all required the CEO to actively choose transparency — to let strategic discussions flow beyond the meeting room. That is not a given in most organizations.</p>
+</div>
+
+</div>

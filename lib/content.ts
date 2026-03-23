@@ -37,6 +37,7 @@ export function getWorkProjects(): WorkProject[] {
       role: data.role as string,
       coverImage: data.coverImage as string | undefined,
       status: data.status as WorkProject["status"],
+      result: data.result as string | undefined,
     }))
     .sort((a, b) => a.order - b.order);
 }
@@ -53,6 +54,7 @@ export function getSideProjects(): SideProject[] {
       icon: data.icon as string,
       url: data.url as string | undefined,
       github: data.github as string | undefined,
+      coverImage: data.coverImage as string | undefined,
     }))
     .sort((a, b) => a.order - b.order);
 }
@@ -69,6 +71,8 @@ export function getAcademicProjects(): AcademicProject[] {
       institution: data.institution as string,
       context: data.context as string,
       pdfUrl: data.pdfUrl as string | undefined,
+      grade: data.grade as string | undefined,
+      coverImage: data.coverImage as string | undefined,
     }))
     .sort((a, b) => a.order - b.order);
 }
@@ -84,6 +88,11 @@ export function getHobbyItems(): HobbyItem[] {
       order: (data.order as number) ?? 0,
       category: data.category as string,
       image: data.image as string | undefined,
+      icon: data.icon as string | undefined,
+      proof: data.proof as string | undefined,
+      url: data.url as string | undefined,
+      notice: data.notice as string | undefined,
+      noticeLink: data.noticeLink as string | undefined,
     }))
     .sort((a, b) => a.order - b.order);
 }
@@ -103,6 +112,88 @@ export function getAllWriting(): WritingPiece[] {
       coverImage: data.coverImage as string | undefined,
     }))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export async function getWorkProjectBySlug(
+  slug: string
+): Promise<{ frontmatter: WorkProject; source: string } | null> {
+  const filePath = path.join(contentDir, "projects/work", `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(raw);
+
+  const frontmatter: WorkProject = {
+    slug,
+    title: data.title as string,
+    year: data.year as number,
+    tags: (data.tags as string[]) ?? [],
+    summary: data.summary as string,
+    order: (data.order as number) ?? 0,
+    company: data.company as string,
+    role: data.role as string,
+    coverImage: data.coverImage as string | undefined,
+    status: data.status as WorkProject["status"],
+    result: data.result as string | undefined,
+  };
+
+  return { frontmatter, source: content };
+}
+
+export async function getSideProjectBySlug(
+  slug: string
+): Promise<{ frontmatter: SideProject; source: string } | null> {
+  const filePath = path.join(contentDir, "projects/side", `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(raw);
+
+  const frontmatter: SideProject = {
+    slug,
+    title: data.title as string,
+    year: data.year as number,
+    tags: (data.tags as string[]) ?? [],
+    summary: data.summary as string,
+    order: (data.order as number) ?? 0,
+    icon: data.icon as string,
+    url: data.url as string | undefined,
+    github: data.github as string | undefined,
+    coverImage: data.coverImage as string | undefined,
+    role: data.role as string | undefined,
+    timeToMvp: data.timeToMvp as string | undefined,
+    status: data.status as string | undefined,
+  };
+
+  return { frontmatter, source: content };
+}
+
+export async function getAcademicProjectBySlug(
+  slug: string
+): Promise<{ frontmatter: AcademicProject; source: string } | null> {
+  const filePath = path.join(contentDir, "projects/academic", `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(raw);
+
+  const frontmatter: AcademicProject = {
+    slug,
+    title: data.title as string,
+    year: data.year as number,
+    tags: (data.tags as string[]) ?? [],
+    summary: data.summary as string,
+    order: (data.order as number) ?? 0,
+    institution: data.institution as string,
+    context: data.context as string,
+    pdfUrl: data.pdfUrl as string | undefined,
+    grade: data.grade as string | undefined,
+    coverImage: data.coverImage as string | undefined,
+    role: data.role as string | undefined,
+    duration: data.duration as string | undefined,
+  };
+
+  return { frontmatter, source: content };
 }
 
 export async function getWritingBySlug(

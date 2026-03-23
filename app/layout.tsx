@@ -5,8 +5,6 @@ import "./globals.css";
 
 import GrainOverlay from "@/components/ui/GrainOverlay";
 import MeshGradient from "@/components/ui/MeshGradient";
-import Nav from "@/components/layout/Nav";
-import Footer from "@/components/layout/Footer";
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-dm-serif",
@@ -35,14 +33,12 @@ export default function RootLayout({
       lang="en"
       className={`${dmSerifDisplay.variable} ${plusJakartaSans.variable} ${GeistMono.variable}`}
     >
-      <body className="antialiased">
+<body className="antialiased">
         <MeshGradient />
         <GrainOverlay />
-        <Nav />
         <main className="relative z-content">
           {children}
         </main>
-        <Footer />
       </body>
     </html>
   );
