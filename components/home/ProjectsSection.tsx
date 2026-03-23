@@ -31,7 +31,7 @@ export default function ProjectsSection({
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.8, margin: "0px 0px -120px 0px" }}
               transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >
@@ -56,7 +56,7 @@ export default function ProjectsSection({
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.8, margin: "0px 0px -120px 0px" }}
               transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >
@@ -81,7 +81,7 @@ export default function ProjectsSection({
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.8, margin: "0px 0px -120px 0px" }}
               transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >
@@ -106,7 +106,7 @@ export default function ProjectsSection({
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.8, margin: "0px 0px -120px 0px" }}
               transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >

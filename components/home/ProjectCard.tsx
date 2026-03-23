@@ -52,7 +52,7 @@ export default function ProjectCard({
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.15, margin: "0px 0px -80px 0px" }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: index * 0.18 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
@@ -132,7 +132,7 @@ export default function ProjectCard({
       <motion.div
         initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
         transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
@@ -192,7 +192,7 @@ export default function ProjectCard({
       <motion.div
         initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
         transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
@@ -253,7 +253,7 @@ export default function ProjectCard({
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
       transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 }}
       whileHover={{ y: -8, scale: 1.02 }}
       onClick={() => p.notice && setOpen(true)}
