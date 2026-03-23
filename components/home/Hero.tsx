@@ -4,9 +4,9 @@ import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+  transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1], delay },
 });
 
 interface StatItem {
@@ -63,7 +63,7 @@ export default function Hero({
           className="flex flex-col items-center md:items-start"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
           <div
             ref={imgRef}
@@ -111,13 +111,13 @@ export default function Hero({
         {/* Content column */}
         <div className="flex flex-col justify-center">
           <motion.p
-            {...fadeUp(0.05)}
+            {...fadeUp(0.65)}
             className="font-mono text-[11px] uppercase tracking-[0.12em] text-text-secondary mb-3"
           >
             Hey, I&apos;m
           </motion.p>
           <motion.h1
-            {...fadeUp(0.15)}
+            {...fadeUp(0.85)}
             className="font-serif text-[clamp(2.8rem,6vw,4.5rem)] leading-[1.08] tracking-[-0.02em] text-text-primary mb-6"
           >
             {firstName}
@@ -128,7 +128,7 @@ export default function Hero({
             {bio.map((paragraph, i) => (
               <motion.p
                 key={i}
-                {...fadeUp(0.28 + i * 0.1)}
+                {...fadeUp(1.2 + i * 0.3)}
                 className="font-sans text-[15px] leading-[1.9] text-text-secondary"
               >
                 {paragraph}

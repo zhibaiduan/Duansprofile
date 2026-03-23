@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import type {
   WorkProject,
   SideProject,
@@ -25,9 +28,15 @@ export default function ProjectsSection({
       <div className="flex flex-col gap-16">
         {work.length > 0 && (
           <section id="work-cases">
-            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
+            >
               Working Cases
-            </h2>
+            </motion.h2>
             <div className="grid grid-cols-1 gap-4">
               {work.map((project, i) => (
                 <ProjectCard
@@ -44,9 +53,15 @@ export default function ProjectsSection({
 
         {side.length > 0 && (
           <section id="side">
-            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
+            >
               Side Projects
-            </h2>
+            </motion.h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {side.map((project, i) => (
                 <ProjectCard
@@ -63,9 +78,15 @@ export default function ProjectsSection({
 
         {academic.length > 0 && (
           <section id="academic">
-            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
+            >
               Academic Projects
-            </h2>
+            </motion.h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {academic.map((project, i) => (
                 <ProjectCard
@@ -82,9 +103,15 @@ export default function ProjectsSection({
 
         {hobby.length > 0 && (
           <section id="think">
-            <h2 className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
+            >
               Outside of Work
-            </h2>
+            </motion.h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {hobby.map((project, i) => (
                 <ProjectCard
