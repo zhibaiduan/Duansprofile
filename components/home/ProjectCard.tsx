@@ -50,10 +50,10 @@ export default function ProjectCard({
     const p = project as WorkProject;
     return (
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: index * 0.15 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: index * 0.18 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
         <Link href={`/projects/work/${p.slug}`} className="block">
@@ -130,10 +130,10 @@ export default function ProjectCard({
     const p = project as SideProject;
     return (
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
         <Link href={`/projects/side/${p.slug}`} className="block h-full">
@@ -190,10 +190,10 @@ export default function ProjectCard({
     const p = project as AcademicProject;
     return (
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 }}
         style={{ rotate: `${rotationDeg}deg` }}
       >
         <Link href={`/projects/academic/${p.slug}`} className="block h-full">
@@ -254,7 +254,7 @@ export default function ProjectCard({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.08 }}
+      transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: index * 0.12 }}
       whileHover={{ y: -8, scale: 1.02 }}
       onClick={() => p.notice && setOpen(true)}
       className={`bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-[0px_2px_8px_0px_rgba(28,25,23,0.08)] border border-white/60 hover:shadow-[0px_12px_32px_0px_rgba(28,25,23,0.12)] group relative overflow-hidden ${p.notice ? "cursor-pointer" : "cursor-default"}`}

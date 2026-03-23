@@ -29,10 +29,10 @@ export default function ProjectsSection({
         {work.length > 0 && (
           <section id="work-cases">
             <motion.h2
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.8 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >
               Working Cases
@@ -54,10 +54,10 @@ export default function ProjectsSection({
         {side.length > 0 && (
           <section id="side">
             <motion.h2
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.8 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >
               Side Projects
@@ -79,10 +79,10 @@ export default function ProjectsSection({
         {academic.length > 0 && (
           <section id="academic">
             <motion.h2
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.8 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >
               Academic Projects
@@ -104,10 +104,10 @@ export default function ProjectsSection({
         {hobby.length > 0 && (
           <section id="think">
             <motion.h2
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.8 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2rem] leading-[1.2] tracking-[-0.02em] text-text-primary mb-7"
             >
               Outside of Work
