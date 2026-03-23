@@ -6,8 +6,12 @@ import { bodoniModa } from "@/lib/fonts";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+// Module-level flag: persists across re-renders within the same session.
+// On re-mount, initial={false} tells Framer Motion to skip to the final state.
+let heroPlayed = false;
+
 const block = (delay: number, y = 36) => ({
-  initial: { opacity: 0, y },
+  initial: heroPlayed ? false : { opacity: 0, y },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 1.0, ease: EASE, delay },
 });
@@ -42,6 +46,7 @@ export default function Hero({
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    heroPlayed = true;
     const onScroll = () => {
       if (window.scrollY > 40) setScrolled(true);
     };
@@ -184,13 +189,13 @@ export default function Hero({
       </div>
       {/* Scroll hint */}
       <motion.div
-        className="flex flex-col items-center gap-2 mt-8"
+        className="flex flex-col items-center gap-2 mt-8 select-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: scrolled ? 0 : 1 }}
         transition={{ duration: 0.6, ease: EASE, delay: scrolled ? 0 : 3.5 }}
         aria-hidden
       >
-        <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-text-secondary/50">
+        <span className="font-mono text-xs uppercase tracking-[0.1em] text-text-secondary/50">
           scroll
         </span>
         <motion.svg

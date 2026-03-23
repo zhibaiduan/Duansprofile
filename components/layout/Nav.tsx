@@ -46,7 +46,7 @@ export default function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+                className="font-mono text-xs uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
               >
                 {link.label}
               </Link>
@@ -54,7 +54,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+                className="font-mono text-xs uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -62,7 +62,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+                className="font-mono text-xs uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -70,7 +70,7 @@ export default function Nav() {
           )}
           <Link
             href="/written"
-            className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+            className="font-mono text-xs uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
           >
             Writing
           </Link>
@@ -119,7 +119,7 @@ export default function Nav() {
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.2, delay: i * 0.04 }}
-                  className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+                  className="font-mono text-xs uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
@@ -132,7 +132,7 @@ export default function Nav() {
               >
                 <Link
                   href="/written"
-                  className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
+                  className="font-mono text-xs uppercase tracking-[0.08em] text-text-secondary hover:text-text-primary transition-colors duration-200"
                   onClick={() => setMenuOpen(false)}
                 >
                   Writing
