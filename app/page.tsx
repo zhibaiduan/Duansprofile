@@ -79,6 +79,10 @@ export default async function Home() {
     getHobbyItems(),
   ]);
   return (
+    <>
+    {/* Preload above-fold hero image for faster LCP */}
+    {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+    <link rel="preload" href="/images/hero/photo.jpg" as="image" />
     <main className="relative z-10 min-h-screen">
       <ScrollUI />
       <Hero
@@ -100,5 +104,6 @@ export default async function Home() {
         <ContactSection />
       </div>
     </main>
+    </>
   );
 }

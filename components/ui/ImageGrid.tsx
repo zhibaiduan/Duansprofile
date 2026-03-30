@@ -68,15 +68,17 @@ export default function ImageGrid({ images: imagesProp, items, label, captions, 
           <div key={i} className="flex flex-col">
             <button
               onClick={() => setLightboxIndex(i)}
-              className="group relative overflow-hidden rounded-lg border border-[#e7e5e4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5b7a52]"
+              className="group relative overflow-hidden rounded-lg border border-[#e7e5e4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5b7a52] img-skeleton"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
                 alt={caption ?? (label ? `${label} ${i + 1}` : `Image ${i + 1}`)}
-                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                className="w-full h-auto object-cover transition-all duration-500 opacity-0 group-hover:scale-[1.03]"
                 loading={i === 0 ? "eager" : "lazy"}
                 decoding="async"
+                onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
+                ref={(el) => { if (el?.complete) el.classList.remove("opacity-0"); }}
               />
               <div className="absolute inset-0 bg-[#1c1917]/0 group-hover:bg-[#1c1917]/10 transition-colors duration-300" />
             </button>

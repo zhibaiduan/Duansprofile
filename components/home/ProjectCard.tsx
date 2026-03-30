@@ -65,10 +65,10 @@ export default function ProjectCard({
             {/* Hover glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
             {/* Image — left */}
-            <div className="relative overflow-hidden h-44 sm:h-auto sm:w-[32%]">
+            <div className="relative overflow-hidden h-44 sm:h-auto sm:w-[32%] img-skeleton">
               {p.coverImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={p.coverImage} alt={p.title} className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" decoding="async" />
+                <img src={p.coverImage} alt={p.title} className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 opacity-0" loading="lazy" decoding="async" onLoad={(e) => e.currentTarget.classList.remove("opacity-0")} ref={(el) => { if (el?.complete) el.classList.remove("opacity-0"); }} />
               ) : (
                 <div className="absolute inset-0 bg-gradient-to-br from-[#f5f1ea] via-[#faf8f4] to-[#e8e0d5] flex items-center justify-center">
                   <motion.div
@@ -150,8 +150,10 @@ export default function ProjectCard({
             {/* Hover glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
             {p.coverImage ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={p.coverImage} alt={p.title} className="h-40 w-full object-cover scale-110" loading="lazy" decoding="async" />
+              <div className="h-40 img-skeleton overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.coverImage} alt={p.title} className="h-40 w-full object-cover scale-110 transition-opacity duration-500 opacity-0" loading="lazy" decoding="async" onLoad={(e) => e.currentTarget.classList.remove("opacity-0")} ref={(el) => { if (el?.complete) el.classList.remove("opacity-0"); }} />
+              </div>
             ) : (
               <PreviewArea />
             )}

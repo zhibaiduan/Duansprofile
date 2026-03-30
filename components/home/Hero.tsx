@@ -99,7 +99,7 @@ export default function Hero({
             />
           <div
             ref={imgRef}
-            className="w-full cursor-default relative"
+            className="w-full cursor-default relative img-skeleton rounded-2xl overflow-hidden"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
@@ -114,10 +114,12 @@ export default function Hero({
               <img
                 src={photo}
                 alt={`${firstName} ${lastName}`}
-                className="w-full rounded-2xl object-cover shadow-[0_8px_32px_rgba(28,25,23,0.18)]"
+                className="w-full rounded-2xl object-cover shadow-[0_8px_32px_rgba(28,25,23,0.18)] transition-opacity duration-500 opacity-0"
                 style={{ aspectRatio: "3/4" }}
                 loading="eager"
                 decoding="sync"
+                onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
+                ref={(el) => { if (el?.complete) el.classList.remove("opacity-0"); }}
               />
             ) : (
               <div
