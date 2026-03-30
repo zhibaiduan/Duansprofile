@@ -68,7 +68,7 @@ export default function ProjectCard({
             <div className="relative overflow-hidden h-44 sm:h-auto sm:w-[32%]">
               {p.coverImage ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={p.coverImage} alt={p.title} className="absolute inset-0 w-full h-full object-cover object-top" />
+                <img src={p.coverImage} alt={p.title} className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" decoding="async" />
               ) : (
                 <div className="absolute inset-0 bg-gradient-to-br from-[#f5f1ea] via-[#faf8f4] to-[#e8e0d5] flex items-center justify-center">
                   <motion.div
@@ -151,7 +151,7 @@ export default function ProjectCard({
             <div className="absolute inset-0 bg-gradient-to-br from-[#5b7a52]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
             {p.coverImage ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={p.coverImage} alt={p.title} className="h-40 w-full object-cover scale-110" />
+              <img src={p.coverImage} alt={p.title} className="h-40 w-full object-cover scale-110" loading="lazy" decoding="async" />
             ) : (
               <PreviewArea />
             )}
@@ -326,6 +326,9 @@ export default function ProjectCard({
                     src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                     alt="Video thumbnail"
                     className="w-full h-32 object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                   />
                   <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover/thumb:bg-black/30 transition-colors">
                     <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-md">

@@ -20,7 +20,7 @@ export default function DemoCard({ title, description, url, link, logo }: DemoCa
       <div className="w-14 h-14 flex-shrink-0 rounded-xl border border-[#e7e5e4] bg-[#faf8f4] flex items-center justify-center overflow-hidden">
         {logo ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={logo} alt={title} className="w-full h-full object-cover" />
+          <img src={logo} alt={title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#f5e6d3] to-[#e8d5c4] flex items-center justify-center">
             <span className="text-[#5b7a52] text-xl font-serif font-bold">

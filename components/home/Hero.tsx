@@ -116,6 +116,8 @@ export default function Hero({
                 alt={`${firstName} ${lastName}`}
                 className="w-full rounded-2xl object-cover shadow-[0_8px_32px_rgba(28,25,23,0.18)]"
                 style={{ aspectRatio: "3/4" }}
+                loading="eager"
+                decoding="sync"
               />
             ) : (
               <div

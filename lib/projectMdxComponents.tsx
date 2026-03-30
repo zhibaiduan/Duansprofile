@@ -146,6 +146,8 @@ export const projectMdxComponents = {
       <img
         className="w-full h-auto rounded-lg border border-[#e7e5e4]"
         alt={props.alt ?? ""}
+        loading="lazy"
+        decoding="async"
         {...props}
       />
       {props.alt && (

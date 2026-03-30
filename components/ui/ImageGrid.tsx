@@ -75,6 +75,8 @@ export default function ImageGrid({ images: imagesProp, items, label, captions, 
                 src={src}
                 alt={caption ?? (label ? `${label} ${i + 1}` : `Image ${i + 1}`)}
                 className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
               />
               <div className="absolute inset-0 bg-[#1c1917]/0 group-hover:bg-[#1c1917]/10 transition-colors duration-300" />
             </button>
@@ -102,6 +104,8 @@ export default function ImageGrid({ images: imagesProp, items, label, captions, 
               src={images[lightboxIndex]}
               alt={label ? `${label} ${lightboxIndex + 1}` : `Image ${lightboxIndex + 1}`}
               className="w-full h-auto max-h-[85vh] object-contain rounded-xl shadow-2xl"
+              loading="eager"
+              decoding="async"
             />
             <p className="text-center font-mono text-xs text-white/40 mt-4">
               {lightboxIndex + 1} / {images.length}
