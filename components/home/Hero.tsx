@@ -99,7 +99,7 @@ export default function Hero({
             />
           <div
             ref={imgRef}
-            className="w-full cursor-default relative img-skeleton rounded-2xl overflow-hidden"
+            className="relative w-full cursor-default"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
@@ -109,6 +109,14 @@ export default function Hero({
               transform: photoTransform,
             }}
           >
+            {quote && (
+              <div className="pointer-events-none absolute -left-3 -top-4 right-3 z-20 rounded-xl border border-border bg-card/92 px-4 py-3 shadow-[0_4px_16px_rgba(28,25,23,0.12)] backdrop-blur-sm">
+                <p className="font-sans text-[11px] italic leading-[1.6] text-text-secondary">
+                  &ldquo;{quote}&rdquo;
+                </p>
+              </div>
+            )}
+            <div className="img-skeleton relative overflow-hidden rounded-2xl">
             {photo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -127,15 +135,7 @@ export default function Hero({
                 style={{ aspectRatio: "3/4" }}
               />
             )}
-
-            {/* Quote overlay */}
-            {quote && (
-              <div className="absolute -top-4 -left-3 right-3 bg-card/92 backdrop-blur-sm rounded-xl shadow-[0_4px_16px_rgba(28,25,23,0.12)] border border-border px-4 py-3 pointer-events-none">
-                <p className="font-sans text-[11px] leading-[1.6] text-text-secondary italic">
-                  &ldquo;{quote}&rdquo;
-                </p>
-              </div>
-            )}
+            </div>
           </div>
           </div>
           {photoCaption && (
