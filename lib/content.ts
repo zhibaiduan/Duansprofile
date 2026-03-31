@@ -38,6 +38,9 @@ export function getWorkProjects(): WorkProject[] {
       coverImage: data.coverImage as string | undefined,
       status: data.status as WorkProject["status"],
       result: data.result as string | undefined,
+      duration: data.duration as string | undefined,
+      team: data.team as string | undefined,
+      subtitle: data.subtitle as string | undefined,
     }))
     .sort((a, b) => a.order - b.order);
 }
@@ -135,6 +138,9 @@ export async function getWorkProjectBySlug(
     coverImage: data.coverImage as string | undefined,
     status: data.status as WorkProject["status"],
     result: data.result as string | undefined,
+    duration: data.duration as string | undefined,
+    team: data.team as string | undefined,
+    subtitle: data.subtitle as string | undefined,
   };
 
   return { frontmatter, source: content };

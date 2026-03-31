@@ -28,11 +28,11 @@ The second problem was less obvious: I wanted to understand the European job mar
 
 I built an automated pipeline using n8n that runs every day.
 
-<ImageGrid label="Process Flowchart" images={["/images/projects/job-research-agent/n8njob_diagram.jpg"]} />
+<ImageGrid label="Process Flowchart" imagesJson='["/images/projects/job-research-agent/n8njob_diagram.jpg"]' />
 
 It scrapes job postings across three platforms, deduplicates by URL, then sends each new posting to an AI agent that compares it against my resume and job goals — returning a match score, skill gaps, and a one-line recommendation. Results are stored in Airtable for review and management, and top matches are pushed to Telegram every morning.
 
-<ImageGrid label="n8n Workflow" images={["/images/projects/job-research-agent/n8njob_workflow.jpg"]} />
+<ImageGrid label="n8n Workflow" imagesJson='["/images/projects/job-research-agent/n8njob_workflow.jpg"]' />
 
 I intentionally skipped auto-apply for the MVP.
 
@@ -46,14 +46,14 @@ All scraped and analyzed results are stored in Airtable as the single source of 
 Different views serve different needs, from reviewing AI match scores to tracking application progress. 
 Airtable AI is used for on-demand analysis on selected records.
 
-<ImageGrid label="Airtable" images={["/images/projects/job-research-agent/n8njob_airtable_sheet.jpg","/images/projects/job-research-agent/n8njob_airtable_track.jpg","/images/projects/job-research-agent/n8njob_analysis.jpg"]} cols={1} />
+<ImageGrid label="Airtable" imagesJson='["/images/projects/job-research-agent/n8njob_airtable_sheet.jpg","/images/projects/job-research-agent/n8njob_airtable_track.jpg","/images/projects/job-research-agent/n8njob_analysis.jpg"]' cols={1} />
 
 
 ### Telegram — Daily Notifications
 
 Top matches are pushed to Telegram every morning. This shifts job searching from active browsing to passive receiving, reducing information noise and lowering the friction to act.
 
-<ImageGrid label="Telegram" images={["/images/projects/job-research-agent/n8njob_telegram.PNG"]} cols={2} center={true} />
+<ImageGrid label="Telegram" imagesJson='["/images/projects/job-research-agent/n8njob_telegram.PNG"]' cols={2} center={true} width="40" />
 
 ## Results
 
@@ -61,7 +61,7 @@ Daily job search time dropped from 2 hours to around 30 minutes. The friction dr
 
 I shared the workflow on Xiaohongshu. Within 48 hours: **413 likes and saves**, **2,543 impressions**. That confirmed the problem isn't just mine.
 
-<ImageGrid label="Xiaohongshu" images={["/images/projects/job-research-agent/n8n_rednote.PNG"]}/>
+<ImageGrid label="Xiaohongshu" imagesJson='["/images/projects/job-research-agent/n8n_rednote.PNG"]'/>
 
 ## What's Next
 

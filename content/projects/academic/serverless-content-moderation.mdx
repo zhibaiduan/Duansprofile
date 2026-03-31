@@ -18,13 +18,13 @@ A final project for the Cloud Computing course at HTW Berlin. I built an automat
 
 A user uploads an image via a presigned S3 URL. S3 triggers a Lambda orchestrator, which fans out via SNS to three parallel analysis functions: Rekognition for visual content, Textract for OCR, and Comprehend for text sentiment. Each function writes its verdict to DynamoDB. A final aggregator Lambda reads the results, computes an overall moderation decision, and sends an SNS notification if human review is needed.
 
-<ImageGrid label="Requirements" images={["/images/projects/serverless/cloud_requirements.jpg"]} />
+<ImageGrid label="Requirements" imagesJson='["/images/projects/serverless/cloud_requirements.jpg"]' />
 
 ## Architecture
 
 The system is fully serverless — no EC2, no containers. Every component is event-driven and stateless. Terraform provisions the entire stack from scratch: Lambda functions, IAM roles, SNS topics, S3 bucket policies, DynamoDB tables, API Gateway, WAF, and CodePipeline. A single `git push` deploys everything.
 
-<ImageGrid label="Architecture" images={["/images/projects/serverless/cloud_architecture.jpg"]} />
+<ImageGrid label="Architecture" imagesJson='["/images/projects/serverless/cloud_architecture.jpg"]' />
 
 ## Design Considerations
 

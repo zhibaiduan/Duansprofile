@@ -2,6 +2,10 @@ import ImageGrid from "@/components/ui/ImageGrid";
 import DemoCard from "@/components/ui/DemoCard";
 import { StatRow, HookGrid, Journey, ArchDiagram, ImpactGrid, SectionLabel, SceneGrid, LabeledRows, ImpactRow, AwardBadge, ReflectionBox } from "@/lib/meetingMdxComponents";
 
+function MdxImageGrid(props: React.ComponentProps<typeof ImageGrid>) {
+  return <ImageGrid {...props} />;
+}
+
 function StackTags({ items }: { items: string }) {
   const tags = items.split("·").map((t) => t.trim()).filter(Boolean);
   return (
@@ -9,7 +13,7 @@ function StackTags({ items }: { items: string }) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="px-3 py-1.5 text-xs font-mono text-[#78716c] bg-[rgba(28,25,23,0.05)] rounded-lg"
+          className="rounded-lg border border-border bg-bg px-3 py-1.5 text-xs font-mono text-text-secondary"
         >
           {tag}
         </span>
@@ -20,18 +24,18 @@ function StackTags({ items }: { items: string }) {
 
 function PdfEmbed({ src }: { src: string }) {
   return (
-    <div className="mt-6 mb-2 rounded-xl border border-[#e7e5e4] overflow-hidden">
+    <div className="mt-6 mb-2 overflow-hidden rounded-xl border border-border">
       <iframe
         src={src}
         className="w-full"
         style={{ height: "70vh", minHeight: "480px" }}
         title="Document"
       />
-      <div className="px-4 py-3 bg-[#faf8f4] border-t border-[#e7e5e4] flex justify-end">
+      <div className="flex justify-end border-t border-border bg-bg px-4 py-3">
         <a
           href={src}
           download
-          className="text-xs font-mono text-[#5b7a52] hover:underline"
+          className="text-xs font-mono text-accent hover:underline"
         >
           Download PDF ↓
         </a>
@@ -43,7 +47,7 @@ function PdfEmbed({ src }: { src: string }) {
 function VideoPlayer({ src, poster, width }: { src: string; poster?: string; width?: string }) {
   return (
     <div className="mt-2 mb-8" style={width ? { width, marginLeft: "auto", marginRight: "auto" } : undefined}>
-      <div className="rounded-xl overflow-hidden border border-[#e7e5e4] shadow-[0px_4px_16px_0px_rgba(28,25,23,0.08)]">
+      <div className="overflow-hidden rounded-xl border border-border shadow-card">
         <video
           src={src}
           poster={poster}
@@ -58,11 +62,22 @@ function VideoPlayer({ src, poster, width }: { src: string; poster?: string; wid
   );
 }
 
-function VideoWithNotes({ src, poster, notes = [] }: { src: string; poster?: string; notes?: string[] }) {
+function VideoWithNotes({ src, poster, notes = [], notesJson }: { src: string; poster?: string; notes?: string[]; notesJson?: string }) {
+  const resolvedNotes = (() => {
+    if (notes.length > 0) return notes;
+    if (!notesJson) return [];
+    try {
+      const parsed = JSON.parse(notesJson);
+      return Array.isArray(parsed) ? parsed.filter((note): note is string => typeof note === "string") : [];
+    } catch {
+      return [];
+    }
+  })();
+
   return (
     <div className="mt-2 mb-8 grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
       {/* Video — 2/3 */}
-      <div className="sm:col-span-2 rounded-xl overflow-hidden border border-[#e7e5e4] shadow-[0px_4px_16px_0px_rgba(28,25,23,0.08)]">
+      <div className="overflow-hidden rounded-xl border border-border shadow-card sm:col-span-2">
         <video
           src={src}
           poster={poster}
@@ -76,8 +91,8 @@ function VideoWithNotes({ src, poster, notes = [] }: { src: string; poster?: str
 
       {/* Notes — 1/3 */}
       <div className="sm:col-span-1 flex flex-col gap-4 py-1">
-        {notes.map((note, i) => (
-          <p key={i} className="text-sm text-[#78716c] leading-relaxed font-sans">
+        {resolvedNotes.map((note, i) => (
+          <p key={i} className="text-sm leading-relaxed font-sans text-text-secondary">
             {note}
           </p>
         ))}
@@ -89,31 +104,31 @@ function VideoWithNotes({ src, poster, notes = [] }: { src: string; poster?: str
 export const projectMdxComponents = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
-      className="text-2xl font-serif text-[#1c1917] mt-20 mb-6 first:mt-0"
+      className="mt-20 mb-6 text-2xl font-serif text-text-primary first:mt-0"
       {...props}
     />
   ),
 
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
-      className="text-base font-semibold text-[#1c1917] font-sans mt-12 mb-3"
+      className="mt-12 mb-3 text-base font-semibold font-sans text-text-primary"
       {...props}
     />
   ),
 
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className="font-sans text-[#57534e] leading-relaxed mb-4 last:mb-0"
+      className="mb-4 font-sans leading-relaxed text-text-secondary last:mb-0"
       {...props}
     />
   ),
 
   strong: (props: React.HTMLAttributes<HTMLElement>) => (
-    <strong className="font-semibold text-[#1c1917]" {...props} />
+    <strong className="font-semibold text-text-primary" {...props} />
   ),
 
   em: (props: React.HTMLAttributes<HTMLElement>) => (
-    <em className="italic text-[#57534e]" {...props} />
+    <em className="italic text-text-secondary" {...props} />
   ),
 
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
@@ -122,18 +137,18 @@ export const projectMdxComponents = {
 
   li: (props: React.LiHTMLAttributes<HTMLLIElement>) => (
     <li
-      className="font-sans text-[#57534e] leading-relaxed relative pl-5
+      className="relative pl-5 font-sans leading-relaxed text-text-secondary
         before:content-[''] before:absolute before:left-0 before:top-[0.72em]
-        before:w-[5px] before:h-[5px] before:rounded-full before:bg-[#5b7a52]"
+        before:h-[5px] before:w-[5px] before:rounded-full before:bg-accent"
       {...props}
     />
   ),
 
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className="border-l-2 border-[#5b7a52] pl-6 my-12
-        [&>p]:font-sans [&>p]:text-base [&>p]:text-[#1c1917] [&>p]:mb-3 [&>p]:leading-relaxed [&>p]:not-italic
-        [&>p:last-child]:mb-0 [&>p:last-child]:text-sm [&>p:last-child]:text-[#78716c]"
+      className="my-12 border-l-2 border-accent pl-6
+        [&>p]:mb-3 [&>p]:font-sans [&>p]:text-base [&>p]:leading-relaxed [&>p]:text-text-primary [&>p]:not-italic
+        [&>p:last-child]:mb-0 [&>p:last-child]:text-sm [&>p:last-child]:text-text-secondary"
       {...props}
     />
   ),
@@ -144,14 +159,14 @@ export const projectMdxComponents = {
     <figure className="my-8">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className="w-full h-auto rounded-lg border border-[#e7e5e4]"
+        className="h-auto w-full rounded-lg border border-border"
         alt={props.alt ?? ""}
         loading="lazy"
         decoding="async"
         {...props}
       />
       {props.alt && (
-        <figcaption className="mt-3 font-mono text-[0.6875rem] leading-relaxed text-[#78716c]/60 text-center">
+        <figcaption className="mt-3 text-center font-mono text-[0.6875rem] leading-relaxed text-text-secondary opacity-60">
           {props.alt}
         </figcaption>
       )}
@@ -160,14 +175,14 @@ export const projectMdxComponents = {
 
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className="text-[#5b7a52] hover:underline"
+      className="text-accent hover:underline"
       target={props.href?.startsWith("http") ? "_blank" : undefined}
       rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
       {...props}
     />
   ),
 
-  ImageGrid,
+  ImageGrid: MdxImageGrid,
   StackTags,
   PdfEmbed,
   DemoCard,
