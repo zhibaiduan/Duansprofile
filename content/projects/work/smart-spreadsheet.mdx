@@ -1,0 +1,198 @@
+---
+title: "Defining the Smart Spreadsheet: Beyond Google Sheets, Not Quite Airtable"
+year: 2023
+company: Kingsoft Office (WPS)
+role: Product Manager
+tags: [Product Strategy, User Research, Low-Code Platform, Spreadsheet, Cross-team Coordination]
+summary: Defined why the smart spreadsheet should exist inside a company already running multiple spreadsheet products, then drove its product direction, low-code engine, and full rollout.
+status: shipped
+order: 5
+result: "DAU 230K → 2M · Low-code direction validated"
+duration: 2022–2024
+coverImage: /images/projects/smartspredsheet/cover.png
+---
+
+<div className="mth-wrap">
+
+<div className="section">
+  <div className="section-label">Background</div>
+  <h2>The hardest part was proving why a third spreadsheet product should exist at all.</h2>
+
+  <p className="prose">Kingsoft was already running three spreadsheet product lines at the same time. I owned the smart spreadsheet product, which was fully cloud-native and free of legacy constraints. That also meant its direction was still undefined, and defining that direction was my real job.</p>
+
+  <p className="prose">The company already had a traditional spreadsheet and a multi-dimensional table product. If the smart spreadsheet was just another tool in between, it would be redundant. The work started with strategy before it ever became roadmap.</p>
+
+  <div className="contrib-grid">
+    <div className="contrib-card">
+      <div className="contrib-letter">A</div>
+      <div className="contrib-phase">Existing line</div>
+      <h4>Traditional spreadsheet</h4>
+      <p>Cloud-hosted desktop logic with strong offline and compatibility expectations.</p>
+    </div>
+    <div className="contrib-card">
+      <div className="contrib-letter">C</div>
+      <div className="contrib-phase">👩 My Scope</div>
+      <h4>Smart spreadsheet</h4>
+      <p>Cloud-native, flexible, and strategically open. Its positioning had to be invented, not inherited.</p>
+    </div>
+    <div className="contrib-card">
+      <div className="contrib-letter">B</div>
+      <div className="contrib-phase">Existing line</div>
+      <h4>Airtable-style table</h4>
+      <p>Closer to Airtable, optimized for database-style workflows and more structured data management.</p>
+    </div>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">My Thinking</div>
+  <h2>The wedge was not “better spreadsheet.” It was “system-building without forcing a new mental model.”</h2>
+
+  <p className="prose">The spreadsheet market is crowded, and competing on basic capabilities creates no moat. Research showed that roughly one in five usage scenarios involved people building internal business systems inside spreadsheets. These users had long-lived files, multi-person collaboration, and high rebuild costs.</p>
+
+  <div className="pull">
+    <p>The spreadsheet is the original prototype of both SaaS software and low-code tools. Users were already trying to build systems. The product simply was not designed to help them do it well.</p>
+  </div>
+
+  <div className="journey">
+    <div className="journey-step">
+      <div className="step-dot">1</div>
+      <div className="step-body">
+        <h4>Traditional spreadsheets are familiar, but fragile at scale</h4>
+        <p>Most users hit a ceiling as soon as workflows become more collaborative, more structured, or more operationally important.</p>
+      </div>
+    </div>
+    <div className="journey-step">
+      <div className="step-dot">2</div>
+      <div className="step-body">
+        <h4>Database-style products solve some of this, but adoption is expensive</h4>
+        <p>Users often need to abandon the spreadsheet mental model they already understand, which creates learning friction and slows migration.</p>
+      </div>
+    </div>
+    <div className="journey-step">
+      <div className="step-dot">3</div>
+      <div className="step-body">
+        <h4>The opportunity was to guide, not replace</h4>
+        <p>Start from the familiar spreadsheet surface, then help users move toward more structured, dependable system-building over time.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">Positioning</div>
+  <h2>More capable than a spreadsheet. Less demanding than Airtable.</h2>
+
+  <div className="problem-grid">
+    <div className="problem-cell">
+      <span className="p-icon">🧩</span>
+      <h3>What it should preserve</h3>
+      <p>The familiarity, flexibility, and low cognitive barrier that make spreadsheets so widely adopted in the first place.</p>
+    </div>
+    <div className="problem-cell">
+      <span className="p-icon">🛠️</span>
+      <h3>What it should add</h3>
+      <p>Structure, safer collaboration, mobile readiness, and the ability to turn a file into a lightweight internal system.</p>
+    </div>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">Example Scenario</div>
+  <h2>A spreadsheet becomes a self-service internal app without changing the data underneath.</h2>
+
+  <p className="prose">A simple HR spreadsheet can become an employee information service without migrating the data source or forcing users into a totally different product model.</p>
+
+  <div className="problem-grid">
+    <div className="problem-cell">
+      <span className="p-icon">📄</span>
+      <h3>Before</h3>
+      <p>Employees message HR manually. HR replies with screenshots or ad hoc exports. Permissions are hard to control because the whole file is exposed.</p>
+    </div>
+    <div className="problem-cell">
+      <span className="p-icon">📱</span>
+      <h3>After</h3>
+      <p>HR builds a lightweight query app on top of the spreadsheet. Employees only see their own row-level data. The flow becomes mobile-friendly and self-service by default.</p>
+    </div>
+  </div>
+
+  <ImageGrid
+    cols={4}
+    fit="contain"
+    frameHeight="sm"
+    bordered={false}
+    desktopSingleRow
+    itemsJson='[
+      {
+        "src": "/images/projects/smartspredsheet/smartsheet-database.jpg",
+        "caption": "1. Manager creates the source table."
+      },
+      {
+        "src": "/images/projects/smartspredsheet/configuration.jpg",
+        "caption": "2. Manager configures the query app."
+      },
+      {
+        "src": "/images/projects/smartspredsheet/search.jpg",
+        "caption": "3. Users search on mobile."
+      },
+      {
+        "src": "/images/projects/smartspredsheet/result.jpg",
+        "caption": "4. Each user only sees their own result."
+      }
+    ]'
+  />
+</div>
+
+<div className="section">
+  <div className="section-label">What I Did</div>
+  <h2>I turned the direction into a real product, then carried it through full rollout.</h2>
+
+  <div className="journey">
+    <div className="journey-step">
+      <div className="step-dot">1</div>
+      <div className="step-body">
+        <h4>Built the research foundation</h4>
+        <p>Combined data analysis, surveys, and 10+ interviews to quantify business scenarios across industries and identify the actual pain points: maintenance cost, hidden collaboration errors, and poor mobile experience.</p>
+      </div>
+    </div>
+    <div className="journey-step">
+      <div className="step-dot">2</div>
+      <div className="step-body">
+        <h4>Designed the low-code engine v1</h4>
+        <p>Defined the first version of the low-code engine around four core templates: information collection, lookup, gallery, and task dispatch. The goal was to make system-building feel familiar instead of foreign.</p>
+      </div>
+    </div>
+    <div className="journey-step">
+      <div className="step-dot">3</div>
+      <div className="step-body">
+        <h4>Owned the rollout end to end</h4>
+        <p>Managed migration planning, release quality, rollback strategy, default settings coordination, and launch operations from partial release to full rollout.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">Impact</div>
+  <h2>The product scaled fast and gave the org a reusable map of spreadsheet business scenarios.</h2>
+
+  <div className="stat-row stat-row--3">
+    <div className="stat-cell">
+      <div className="stat-eyebrow">DAU</div>
+      <div className="stat-num">230K → 2M</div>
+      <div className="stat-label">Traffic migration and launch coordination scaled the product without disrupting existing users.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Direction</div>
+      <div className="stat-num">Validated</div>
+      <div className="stat-label">The low-code direction worked with real users, and similar moves later appeared in competitor products.</div>
+    </div>
+    <div className="stat-cell">
+      <div className="stat-eyebrow">Org value</div>
+      <div className="stat-num">Shared map</div>
+      <div className="stat-label">Produced the first quantified picture of spreadsheet business scenarios for the wider team.</div>
+    </div>
+  </div>
+</div>
+
+</div>

@@ -22,6 +22,94 @@ function StackTags({ items }: { items: string }) {
   );
 }
 
+function WorkTrackPair({
+  leftLabel,
+  leftTitle,
+  leftItems,
+  leftResult,
+  leftResultCopy,
+  rightLabel,
+  rightTitle,
+  rightItems,
+  rightResult,
+  rightResultCopy,
+}: {
+  leftLabel: string;
+  leftTitle: string;
+  leftItems: string;
+  leftResult: string;
+  leftResultCopy: string;
+  rightLabel: string;
+  rightTitle: string;
+  rightItems: string;
+  rightResult: string;
+  rightResultCopy: string;
+}) {
+  const renderItems = (items: string) =>
+    items
+      .split("|")
+      .map((item) => item.trim())
+      .filter(Boolean)
+      .map((item) => (
+        <li key={item} className="relative pl-4 text-sm leading-relaxed text-text-secondary before:absolute before:left-0 before:top-[0.65rem] before:h-1 before:w-1 before:rounded-full before:bg-text-tertiary before:content-['']">
+          {item}
+        </li>
+      ));
+
+  const TrackCard = ({
+    label,
+    title,
+    items,
+    result,
+    resultCopy,
+  }: {
+    label: string;
+    title: string;
+    items: string;
+    result: string;
+    resultCopy: string;
+  }) => (
+    <div className="rounded-xl border border-border bg-bg px-5 py-5 shadow-[0_1px_0_rgba(28,25,23,0.02)]">
+      <p className="mb-2 text-[11px] font-mono font-medium uppercase tracking-[0.18em] text-text-tertiary">
+        {label}
+      </p>
+      <h3 className="mb-4 mt-0 text-[1.05rem] font-semibold leading-snug text-text-primary">
+        {title}
+      </h3>
+      <ul className="mb-5 space-y-2 pl-0">
+        {renderItems(items)}
+      </ul>
+      <div className="border-t border-border pt-4">
+        <p className="mb-1 text-[1.05rem] font-semibold leading-none text-text-primary">
+          {result}
+        </p>
+        <p className="mb-0 text-sm leading-relaxed text-text-secondary">
+          {resultCopy}
+        </p>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="mt-6 grid grid-cols-1 gap-[10px] md:grid-cols-2">
+      <TrackCard
+        label={leftLabel}
+        title={leftTitle}
+        items={leftItems}
+        result={leftResult}
+        resultCopy={leftResultCopy}
+      />
+      <TrackCard
+        label={rightLabel}
+        title={rightTitle}
+        items={rightItems}
+        result={rightResult}
+        resultCopy={rightResultCopy}
+      />
+    </div>
+  );
+}
+
 function PdfEmbed({ src }: { src: string }) {
   return (
     <div className="mt-6 mb-2 overflow-hidden rounded-xl border border-border">
@@ -184,6 +272,7 @@ export const projectMdxComponents = {
 
   ImageGrid: MdxImageGrid,
   StackTags,
+  WorkTrackPair,
   PdfEmbed,
   DemoCard,
   VideoPlayer,

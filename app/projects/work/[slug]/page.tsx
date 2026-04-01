@@ -20,14 +20,12 @@ export default async function WorkProjectPage({
   if (!result) notFound();
 
   const { frontmatter: p, source } = result;
-  const otherCases = getWorkProjects().filter((proj) => proj.slug !== slug);
+  const otherCases = getWorkProjects().filter((proj) => proj.slug !== slug).slice(0, 2);
 
   const infoItems = [
     { label: "Company", value: p.company },
     { label: "Role", value: p.role },
     { label: "Year", value: String(p.year) },
-    { label: "Duration", value: p.duration },
-    { label: "Team", value: p.team },
     { label: "Status", value: p.status },
   ].filter((item): item is { label: string; value: string } => Boolean(item.value));
 
@@ -42,11 +40,11 @@ export default async function WorkProjectPage({
           {p.title}
         </h1>
         {p.subtitle && (
-          <p className="text-lg md:text-2xl font-serif text-[#78716c] mb-4 leading-[1.2] italic">
+          <p className="text-lg md:text-2xl font-serif text-[#78716c] mb-4 leading-[1.2] italic max-w-3xl">
             {p.subtitle}
           </p>
         )}
-        <p className="text-base md:text-lg text-text-secondary mb-6 leading-relaxed max-w-2xl font-sans">
+        <p className="text-base md:text-lg text-text-secondary mb-6 leading-relaxed max-w-3xl font-sans">
           {p.summary}
         </p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-5">
@@ -87,7 +85,7 @@ export default async function WorkProjectPage({
           </h3>
           <div className="space-y-6">
             {otherCases.map((proj) => (
-              <Link key={proj.slug} href={`/projects/work/${proj.slug}`} className="block group">
+              <Link key={proj.slug} href={`/projects/work/${proj.slug}`} className="group block">
                 <div className="flex items-start justify-between gap-4 pb-6 border-b border-[#e7e5e4] last:border-0 hover:border-[#5b7a52] transition-colors">
                   <div className="flex-1">
                     <div className="flex items-baseline gap-3 mb-2">
@@ -115,7 +113,7 @@ export default async function WorkProjectPage({
 
       {/* Back */}
       <div className="mt-16">
-        <Link href="/#work-cases" className="inline-flex items-center gap-2 text-sm text-[#78716c] hover:text-[#1c1917] transition-colors font-sans">
+        <Link href="/#work-cases" className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors font-sans">
           <ArrowLeft className="w-4 h-4" />
           <span>Back to all projects</span>
         </Link>

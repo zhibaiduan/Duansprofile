@@ -1,0 +1,158 @@
+---
+title: Driving Feature Adoption and Mobile UX on a 10M-User Product
+year: 2022
+company: Kingsoft Office (WPS)
+role: Product Manager
+tags: [Product Optimization, Mobile UX, Feature Analytics, Usability Testing, Spreadsheet]
+summary: In a mature spreadsheet product with 10M+ users, focused growth on pulling existing users deeper into the product and redesigning the mobile experience around real behavior.
+status: shipped
+order: 4
+result: "Feature penetration +14% · Satisfaction 60% → 80%"
+duration: 2022–2024
+coverImage: /images/projects/featureadoption/cover.png
+---
+
+<div className="mth-wrap">
+
+<div className="section">
+  <div className="section-label">Background</div>
+  <h2>Growth in a mature product had to come from depth, not noise.</h2>
+
+  <p className="prose">Kingsoft&apos;s online spreadsheet was already a national-scale product with more than 10M active users. It was feature-complete, well established, and highly visible inside the company. I joined without a predefined brief, so the first question I had to answer was strategic rather than tactical: where can a product this mature still create meaningful progress?</p>
+
+  <p className="prose">The team&apos;s core tracking metrics were daily active users, monthly active users, and active file counts. At this scale, those numbers were heavily shaped by seasonality, quarter cycles, and external environment. Chasing them directly felt like chasing noise.</p>
+
+  <div className="pull">
+    <p>The better question was not “how do we get more users?” but “how do we move existing users inward, from basic usage toward deeper dependency?”</p>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">My Thinking</div>
+  <h2>More value would come from reducing the climb into mid-level capability.</h2>
+
+  <div className="journey">
+    <div className="journey-step">
+      <div className="step-dot">1</div>
+      <div className="step-body">
+        <h4>Optimizing only the basics does not create strategic distance</h4>
+        <p>Basic spreadsheet features will always have the largest volume, but they rarely create a differentiated reason to stay.</p>
+      </div>
+    </div>
+    <div className="journey-step">
+      <div className="step-dot">2</div>
+      <div className="step-body">
+        <h4>Meaningful growth comes from lowering the barrier into higher-value use</h4>
+        <p>More users need to reach mid-level capabilities quickly enough to feel the product’s deeper value.</p>
+      </div>
+    </div>
+    <div className="journey-step">
+      <div className="step-dot">3</div>
+      <div className="step-body">
+        <h4>Casual scenarios still matter</h4>
+        <p>The first requirement was making sure the core mobile experience was not worse than competitors. The second was designing better pathways into deeper usage.</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="model-figure">
+    <svg viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" aria-label="User depth model showing casual, mid-level, and power users">
+      <defs>
+        <marker id="arr-in" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M2 2L8 5L2 8" fill="none" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </marker>
+        <marker id="arr-out" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M8 2L2 5L8 8" fill="none" stroke="#f87171" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </marker>
+      </defs>
+      <circle cx="320" cy="165" r="152" fill="rgba(0,0,0,0.012)" stroke="rgba(0,0,0,0.07)" strokeWidth="1.5" />
+      <circle cx="320" cy="165" r="90" fill="rgba(0,0,0,0.022)" stroke="rgba(0,0,0,0.09)" strokeWidth="1" />
+      <circle cx="320" cy="165" r="38" fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.13)" strokeWidth="1" />
+      <text x="320" y="160" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="11" fontWeight="500" fill="rgba(0,0,0,0.72)">Power Users</text>
+      <text x="320" y="174" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="10" fill="rgba(0,0,0,0.38)">High switching cost</text>
+      <text x="320" y="105" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="11" fontWeight="500" fill="rgba(0,0,0,0.52)">Mid-level Users</text>
+      <text x="320" y="119" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="10" fill="rgba(0,0,0,0.30)">Growing dependency</text>
+      <text x="320" y="22" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="11" fontWeight="500" fill="rgba(0,0,0,0.42)">Casual Users — the vast majority</text>
+      <text x="320" y="37" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="10" fill="rgba(0,0,0,0.26)">Basic features only · Lowest switching cost · Largest group by far</text>
+      <line x1="44" y1="165" x2="226" y2="165" stroke="#22c55e" strokeWidth="1.5" markerEnd="url(#arr-in)" />
+      <text x="4" y="158" fontFamily="var(--font-sans),sans-serif" fontSize="10" fontWeight="500" fill="#22c55e">Pull in</text>
+      <text x="6" y="172" fontFamily="var(--font-sans),sans-serif" fontSize="9" fill="#22c55e">deeper</text>
+      <line x1="596" y1="165" x2="414" y2="165" stroke="#f87171" strokeWidth="1.5" strokeDasharray="5,3" markerEnd="url(#arr-out)" />
+      <text x="600" y="158" fontFamily="var(--font-sans),sans-serif" fontSize="10" fontWeight="500" fill="#f87171">Escape</text>
+      <text x="603" y="172" fontFamily="var(--font-sans),sans-serif" fontSize="9" fill="#f87171">risk</text>
+      <rect x="2" y="190" width="134" height="36" rx="4" fill="none" stroke="#22c55e" strokeWidth="0.5" strokeOpacity="0.45" />
+      <text x="69" y="205" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="9" fill="#22c55e">Feature adoption</text>
+      <text x="69" y="218" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="9" fill="#22c55e">Lower mid-feature barrier</text>
+      <rect x="504" y="190" width="134" height="36" rx="4" fill="none" stroke="#f87171" strokeWidth="0.5" strokeOpacity="0.45" />
+      <text x="571" y="205" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="9" fill="#f87171">Mobile UX redesign</text>
+      <text x="571" y="218" textAnchor="middle" fontFamily="var(--font-sans),sans-serif" fontSize="9" fill="#f87171">Core experience parity</text>
+    </svg>
+    <div className="model-caption">User depth model: the goal is inward movement and preventing escape.</div>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">Data Analysis</div>
+  <h2>I built my own map of where value was real and where friction was hiding.</h2>
+
+  <p className="prose">I proactively requested access to the product database and built a systematic analysis across <strong>platform activity</strong>, <strong>acquisition channels</strong>, <strong>file lifecycle</strong>, <strong>collaboration patterns</strong>, <strong>business scenarios</strong>, <strong>keyword signals</strong>, and <strong>feature usage</strong>.</p>
+
+  <div className="contrib-grid">
+    <div className="contrib-card">
+      <div className="contrib-letter">A</div>
+      <div className="contrib-phase">Research</div>
+      <h4>Platform behavior</h4>
+      <p>Separated mobile and desktop activity to understand where users were truly active, not where we assumed they were.</p>
+    </div>
+    <div className="contrib-card">
+      <div className="contrib-letter">B</div>
+      <div className="contrib-phase">Research</div>
+      <h4>Business scenarios</h4>
+      <p>Mapped the real work users were doing in spreadsheets instead of relying on generic office-product assumptions.</p>
+    </div>
+    <div className="contrib-card">
+      <div className="contrib-letter">C</div>
+      <div className="contrib-phase">Research</div>
+      <h4>Feature penetration</h4>
+      <p>Measured where users stopped at basic usage and which mid-level functions were valuable but under-adopted.</p>
+    </div>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">Two Findings</div>
+  <h2>The opportunity sat at the intersection of mobile intent and mid-level capability.</h2>
+
+  <div className="problem-grid">
+    <div className="problem-cell">
+      <span className="p-icon">📱</span>
+      <h3>Mobile was active, but badly matched to user intent</h3>
+      <p>A large share of active usage came from mobile, yet the interface was overloaded and designed as if users were building spreadsheets on small screens. In reality, they were mostly viewing, scanning, and navigating.</p>
+    </div>
+    <div className="problem-cell">
+      <span className="p-icon">📈</span>
+      <h3>Mid-level features had value, but the barrier was too high</h3>
+      <p>Features like conditional formatting were strategically useful in real business scenarios, but penetration stayed low because the product asked too much learning up front.</p>
+    </div>
+  </div>
+</div>
+
+<div className="section">
+  <div className="section-label">What I Did</div>
+  <h2>I did two independent pieces of work, and each produced its own outcome.</h2>
+
+  <WorkTrackPair
+    leftLabel="Track 01 · Mobile"
+    leftTitle="Redesigned mobile around actual user behavior"
+    leftItems="Separated reading and editing into clearer modes|Rebuilt information hierarchy and feature entry points|Improved onboarding for first-time mobile users"
+    leftResult="60% → 80% satisfaction"
+    leftResultCopy="Usability testing improved significantly after the redesign, with no core business metrics declining after launch."
+    rightLabel="Track 02 · Feature depth"
+    rightTitle="Made mid-level features easier to reach and understand"
+    rightItems="Simplified conditional formatting into guided flows|Redesigned high-frequency data collection features|Made higher-value capabilities feel approachable without reducing power"
+    rightResult="Feature penetration +14%"
+    rightResultCopy="Across the targeted mid-level feature set, proving that reducing the learning barrier unlocked deeper usage."
+  />
+</div>
+
+</div>

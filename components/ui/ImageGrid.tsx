@@ -18,6 +18,11 @@ interface ImageGridProps {
   cols?: 1 | 2 | 3 | 4;
   center?: boolean;
   width?: "40" | "50" | "60" | "70" | "80" | "100";
+  fit?: "cover" | "contain";
+  frameHeight?: "xs" | "sm" | "md" | "lg";
+  noResponsiveWrap?: boolean;
+  bordered?: boolean;
+  desktopSingleRow?: boolean;
 }
 
 function parseStringArray(json?: string): string[] | undefined {
@@ -47,7 +52,22 @@ function parseScreenItems(json?: string): ScreenItem[] | undefined {
   }
 }
 
-export default function ImageGrid({ images: imagesProp, imagesJson, items, itemsJson, label, captions, cols, center, width }: ImageGridProps) {
+export default function ImageGrid({
+  images: imagesProp,
+  imagesJson,
+  items,
+  itemsJson,
+  label,
+  captions,
+  cols,
+  center,
+  width,
+  fit = "cover",
+  frameHeight = "md",
+  noResponsiveWrap = false,
+  bordered = true,
+  desktopSingleRow = false,
+}: ImageGridProps) {
   // Normalise to a flat list of { src, caption }
   const parsedItems = parseScreenItems(itemsJson);
   const parsedImages = parseStringArray(imagesJson);
@@ -76,6 +96,24 @@ export default function ImageGrid({ images: imagesProp, imagesJson, items, items
     width === "80" ? "md:w-4/5" :
     width === "100" ? "w-full" :
     "w-full";
+  const frameHeightClass =
+    frameHeight === "xs" ? "h-[8.5rem] md:h-[9.5rem]" :
+    frameHeight === "sm" ? "h-[10rem] md:h-[11rem]" :
+    frameHeight === "lg" ? "h-[14rem] md:h-[16rem]" :
+    "h-[12rem] md:h-[14rem]";
+  const gridClass =
+    desktopSingleRow && cols === 4 ? "grid-cols-2 md:grid-cols-4" :
+    desktopSingleRow && cols === 3 ? "grid-cols-2 md:grid-cols-3" :
+    noResponsiveWrap && cols === 4 ? "grid-cols-4" :
+    noResponsiveWrap && cols === 3 ? "grid-cols-3" :
+    noResponsiveWrap && cols === 2 ? "grid-cols-2" :
+    cols === 4 ? "grid-cols-2 sm:grid-cols-4" :
+    cols === 3 ? "grid-cols-1 sm:grid-cols-3" :
+    cols === 2 ? "grid-cols-1 sm:grid-cols-2" :
+    cols === 1 ? "grid-cols-1" :
+    images.length === 1 ? "grid-cols-1" :
+    images.length === 2 ? "grid-cols-1 sm:grid-cols-2" :
+    "grid-cols-1 sm:grid-cols-3";
 
   const prev = useCallback(() => {
     setLightboxIndex((i) =>
@@ -109,24 +147,16 @@ export default function ImageGrid({ images: imagesProp, imagesJson, items, items
       <div
         className={`mt-6 mb-2 ${center ? `mx-auto w-full ${centeredMaxWidthClass}` : widthClass} ${center && width !== "100" ? widthClass : ""}`}
       >
-        <div className={`grid gap-3 ${
-          cols === 4 ? "grid-cols-2 sm:grid-cols-4" :
-          cols === 3 ? "grid-cols-1 sm:grid-cols-3" :
-          cols === 2 ? "grid-cols-1 sm:grid-cols-2" :
-          cols === 1 ? "grid-cols-1" :
-          images.length === 1 ? "grid-cols-1" :
-          images.length === 2 ? "grid-cols-1 sm:grid-cols-2" :
-          "grid-cols-1 sm:grid-cols-3"
-        }`}>
+        <div className={`grid gap-3 ${gridClass}`}>
         {resolved.map(({ src, caption }, i) => (
           <div key={i} className="flex flex-col">
             <button
               type="button"
               onClick={() => setLightboxIndex(i)}
-              className="img-skeleton group relative min-h-[6rem] overflow-hidden rounded-lg border border-border focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className={`img-skeleton group relative overflow-hidden ${bordered ? "rounded-lg border border-border" : ""} focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${frameHeightClass}`}
             >
               {failedImages[i] ? (
-                <div className="flex min-h-[10rem] w-full items-center justify-center bg-bg px-4 text-center">
+                <div className="flex h-full w-full items-center justify-center bg-bg px-4 text-center">
                   <p className="font-mono text-[0.6875rem] leading-relaxed text-text-secondary">
                     Image failed to load
                   </p>
@@ -137,7 +167,7 @@ export default function ImageGrid({ images: imagesProp, imagesJson, items, items
                   <img
                     src={src}
                     alt={caption ?? (label ? `${label} ${i + 1}` : `Image ${i + 1}`)}
-                    className="block w-full h-auto object-cover transition-all duration-500 group-hover:scale-[1.03]"
+                    className={`block h-full w-full transition-all duration-500 group-hover:scale-[1.03] ${fit === "contain" ? "object-contain" : "object-cover"}`}
                     loading={i === 0 ? "eager" : "lazy"}
                     decoding="async"
                     onError={() => markFailed(i)}
