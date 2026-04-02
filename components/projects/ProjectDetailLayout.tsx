@@ -22,8 +22,9 @@ export default function ProjectDetailLayout({
       </div>
 
       {/* Fixed nav */}
-      <nav className="fixed top-0 left-0 right-0 z-nav bg-[color:var(--color-bg)]/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-4xl items-center gap-4 px-6 py-5 sm:gap-5">
+      <nav className="fixed top-0 left-0 right-0 z-nav isolate overflow-hidden">
+        <div className="absolute inset-0 bg-bg" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-4xl items-center gap-4 px-6 py-5 sm:gap-5">
           <Link
             href={backHref}
             className="flex shrink-0 items-center gap-2 whitespace-nowrap text-text-secondary transition-colors hover:text-text-primary"
@@ -52,7 +53,7 @@ export default function ProjectDetailLayout({
       </nav>
 
       {/* Main */}
-      <main className="pt-16 pb-32">
+      <main className="pt-24 pb-32 sm:pt-28">
         <div className="max-w-4xl mx-auto px-6">
           {children}
         </div>

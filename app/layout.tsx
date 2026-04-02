@@ -59,7 +59,7 @@ export default function RootLayout({
 <body className="antialiased">
         <MeshGradient />
         <GrainOverlay />
-        <main className="relative z-content">
+        <main className="relative">
           {children}
         </main>
       </body>

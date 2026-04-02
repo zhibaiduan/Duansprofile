@@ -80,6 +80,7 @@ export default function ImageGrid({
   const images = resolved.map((r) => r.src);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
   const close = () => setLightboxIndex(null);
   const centeredMaxWidthClass =
@@ -141,6 +142,9 @@ export default function ImageGrid({
   const markFailed = useCallback((index: number) => {
     setFailedImages((current) => (current[index] ? current : { ...current, [index]: true }));
   }, []);
+  const markLoaded = useCallback((index: number) => {
+    setLoadedImages((current) => (current[index] ? current : { ...current, [index]: true }));
+  }, []);
 
   return (
     <>
@@ -153,7 +157,7 @@ export default function ImageGrid({
             <button
               type="button"
               onClick={() => setLightboxIndex(i)}
-              className={`img-skeleton group relative overflow-hidden ${bordered ? "rounded-lg border border-border" : ""} focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${frameHeightClass}`}
+              className={`${!loadedImages[i] && !failedImages[i] ? "img-skeleton" : "bg-transparent"} group relative overflow-hidden ${bordered ? "rounded-lg border border-border" : ""} focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${frameHeightClass}`}
             >
               {failedImages[i] ? (
                 <div className="flex h-full w-full items-center justify-center bg-bg px-4 text-center">
@@ -170,7 +174,13 @@ export default function ImageGrid({
                     className={`block h-full w-full transition-all duration-500 group-hover:scale-[1.03] ${fit === "contain" ? "object-contain" : "object-cover"}`}
                     loading={i === 0 ? "eager" : "lazy"}
                     decoding="async"
+                    onLoad={() => markLoaded(i)}
                     onError={() => markFailed(i)}
+                    ref={(el) => {
+                      if (el?.complete && el.naturalWidth > 0) {
+                        markLoaded(i);
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-transparent transition-colors duration-300 group-hover:bg-black/10" />
                 </>
